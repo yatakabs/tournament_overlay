@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>BSDP Overlay like</title>
+	    <link rel="stylesheet" href="bsdp-like.css">
+	    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800" rel="stylesheet">
+	</head>
+	<body style="zoom:1;">
+	    <div class="scoreStats" style="bottom:0!important;border-radius:10px 10px 0px 0px!important;" id="scoreStats">
+	        <h2 class="time" id="song_time">Time</h2>
+	        <h2 class="score" id="score">Score</h2>
+	        <h2 class="accuracy" id="percentage">Accuracy</h2>
+	        <h2 class="combo" id="combo">Combo</h2>
+	    </div>
+
+	    <div class="mapInfo" style="display: none;top:10px!important;" id="mapInfo">
+	        <div>
+	            <div class="beatmapImageContainer" style="border-radius:10px 0px;">
+					<img class="beatmapImage" id="image">
+	            </div>
+	            <div class="beatmapInfo" style="margin-bottom: auto;">
+	                <h1 class="song" id="title" style="border-radius: 0px 10px 10px 0px;">SongName</h1>
+	                <p class="artist" id="artist" style="border-radius: 0px 0px 10px;">ArtistName</p>
+	                <p class="mapper" id="mapper" style="border-radius: 0px 0px 10px;">Mapper</p>
+	                <p class="bsr" style="border-radius: 0px 0px 10px;"><span id="bsr_text">BSR: </span><span id="bsr">00000</span></p>
+	            </div>
+	        </div>
+	        <p class="preBSR" style="border-radius: 0px 0px 10px 10px;padding: 12.5px 10px 17.5px 5px;"><span id="pre_bsr_text">Pre BSR: </span><span id="pre_bsr">00000</span></p>
+	    </div>
+		<script src="./js/options.js"></script>
+		
+		<script src="./js/ui.js"></script>
+		<script src="./js/events.js"></script>
+		<script src="./js/manager.js"></script>
+	</body>
+</html>
