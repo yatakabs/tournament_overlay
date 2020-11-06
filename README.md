@@ -9,7 +9,7 @@ https://rynan4818.github.io/tournament_overlay/
 ```
 ## 1080p(1920x1080)用 (上記の1.5倍スケール)
 ```
-https://rynan4818.github.io/tournament_overlay/
+https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 ```
 
 index.html, bsdp-like_d.html, bsdp-like.css は[BSDP-Overlay](https://github.com/kOFReadie/BSDP-Overlay)を元に改造しています。
