@@ -3,11 +3,11 @@
 
 [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[Beat Saber HTTP Status +Database](https://github.com/rynan4818/beatsaber-http-status-db)を使用して、下記URLをOBSのブラウザソースに設定して使用可能です。
 
-##720p(1280x720)用
+## 720p(1280x720)用
 ```
 https://rynan4818.github.io/tournament_overlay/
 ```
-##1080p(1920x1080)用 (上記の1.5倍スケール)
+## 1080p(1920x1080)用 (上記の1.5倍スケール)
 ```
 https://rynan4818.github.io/tournament_overlay/
 ```
