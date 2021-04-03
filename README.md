@@ -1,7 +1,7 @@
 # tournament_overlay
 ビーセイ大会用オーバーレイです。
 
-[Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[Beat Saber HTTP Status +Database](https://github.com/rynan4818/beatsaber-http-status-db)を使用して、下記URLをOBSのブラウザソースに設定して使用可能です。
+[Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBSのブラウザソースに設定して使用可能です。
 
 ## 720p(1280x720)用
 ```
