@@ -18,6 +18,7 @@ const ui = (() => {
 		if (html_id["rank"])       var rank = document.getElementById("rank");
 		if (html_id["percentage"]) var percentage = document.getElementById("percentage");
 		if (html_id["score"])      var score = document.getElementById("score");
+		if (html_id["raw_score"])  var raw_score = document.getElementById("raw_score");
 		if (html_id["combo"])      var combo = document.getElementById("combo");
 		if (html_id["miss"])       var miss = document.getElementById("miss");
 		if (html_id["energy"])     var energy = document.getElementById("energy");
@@ -30,6 +31,7 @@ const ui = (() => {
 		return (data) => {
 			var performance = data.status.performance;
 			if (html_id["score"]) score.innerText = format(performance.score);
+			if (html_id["raw_score"]) raw_score.innerText = format(performance.rawScore);
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"])  rank.innerText = performance.rank;
 			if (html_id["miss"])  miss.innerText = performance.missedNotes;
@@ -205,6 +207,7 @@ const ui = (() => {
 		if (html_id["bsr"])           var bsr = document.getElementById("bsr");
 		if (html_id["bsr_text"])      var bsr_text = document.getElementById("bsr_text");
 		if (html_id["mod"])           var mod = document.getElementById("mod");
+		if (html_id["mod_nf"])        var mod_nf = document.getElementById("mod_nf");
 		if (html_id["pre_bsr"])       var pre_bsr = document.getElementById("pre_bsr");
 		if (html_id["pre_bsr_text"])  var pre_bsr_text = document.getElementById("pre_bsr_text");
 		if (html_id["energy"])        var energy = document.getElementById("energy");
@@ -318,6 +321,14 @@ const ui = (() => {
 				if (mod_data.noArrows === true)           mod_text += "NA,";
 				mod_text = mod_text.slice(0,-1);
 				mod.innerText = mod_text;
+			}
+			
+			if (html_id["mod_nf"]) {
+				if (mod_data.noFail === true) {
+					mod_nf.innerText = "";
+				} else {
+					mod_nf.innerText = "No NF!";
+				}
 			}
 			
 			if (pre_bsr_data === null) {
