@@ -66,7 +66,8 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
     ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting8.png)
 
-※配信ソフトが Streamlabs OBS の場合は、[Mozoryさんの記事](https://infovr.net/?p=408)が参考になると思います。
+## 動作しない場合
+もしも動作しない場合は、Beat Saber Overlay 改良版の[トラブルシューティング](https://github.com/rynan4818/beat-saber-overlay/blob/master/Troubleshooting.md)を参照してください。
 
 ## 備考
 index.html, bsdp-like_d.html, bsdp-like.css は[BSDP-Overlay](https://github.com/kOFReadie/BSDP-Overlay)を元に改造しています。
