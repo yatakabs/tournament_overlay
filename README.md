@@ -52,7 +52,7 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting2.png)
 
-4. 上記のアドレスを、OBSのURL欄に貼り付けます。
+4. 上記アドレス `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
 
    ![image](https://rynan4818.github.io/tournament_overlay3.png)
 
