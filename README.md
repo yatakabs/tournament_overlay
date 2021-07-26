@@ -43,6 +43,8 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
    その場合は、ModAssistantにある**websocket-sharpのインストールが必須**です。入れ忘れトラブルが多いので注意して下さい。
 
    ![image](https://rynan4818.github.io/beatsaber-overlay-websocket-sharp.png)
+   
+   ModAssistantにもwebsocket-sharpが未登録な場合は[BEATMODS](https://beatmods.com/#/mods)で、1つ前の`Game Version`から`websocket-sharp`を`Download Zip`してインストールも可能です。websocket-sharpはBeatSaberのアップデートと無関係なため旧Game Version用を使用しても基本的に問題ありません。
 
 2. OBSのソースにブラウザを追加します。
 
