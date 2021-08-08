@@ -23,6 +23,7 @@ const ui = (() => {
 		if (html_id["miss"])       var miss = document.getElementById("miss");
 		if (html_id["energy"])     var energy = document.getElementById("energy");
 		if (html_id["energy_bar"]) var energy_bar = document.getElementById("energy_bar");
+		if (html_id["mod_nf"])        var mod_nf = document.getElementById("mod_nf");
 
 		function format(number) {
 			return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -35,6 +36,18 @@ const ui = (() => {
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"])  rank.innerText = performance.rank;
 			if (html_id["miss"])  miss.innerText = performance.missedNotes;
+			if (typeof performance.softFailed !== "undefined") {
+				if (performance.softFailed === true) {
+					failed = true;
+					now_energy = null;
+					if (html_id["energy"]) energy.innerText = "NF";
+					if (html_id["energy_group"] && energy_display) energy_group.setAttribute("style", "visibility: hidden");
+					if (html_id["mod_nf"]) {
+						mod_nf.style.color = "white";
+						mod_nf.innerText = "Failed";
+					}
+				}
+			}
 			if (html_id["percentage"]) {
 				var score_num = performance.score / performance.currentMaxScore * 100.0
 				percentage.innerText = (performance.currentMaxScore > 0 ? score_num.toFixed(2) : "100.00") + "%";
@@ -90,12 +103,14 @@ const ui = (() => {
 					}
 				}
 				if (now_energy > 100) now_energy = 100;
-				if (data.event === "failed") {
-					now_energy = 0;
+				if (data.event === "softFailed") {
+					now_energy = null;
 					failed = true;
 				}
 				if (now_energy < 0) now_energy = 0;
-				if (failed) now_energy = 0;
+				if (failed) {
+					now_energy = 0;
+  			}
 				if (html_id["energy"]) energy.innerText = Math.round(now_energy) + "%";
 				if (html_id["energy_bar"]) energy_bar.setAttribute("style", `width: ${Math.round(now_energy)}%`);
 			}
@@ -117,6 +132,7 @@ const ui = (() => {
 		var duration;
 		var length_min;
 		var length_sec;
+		var song_speed;
 
 		var display;
 
@@ -134,7 +150,7 @@ const ui = (() => {
 		function update(time) {
 			time = time || Date.now();
 
-			var delta = time - began;
+			var delta = (time - began) * song_speed;
 
 			var progress = Math.floor(delta / 1000);
 			var percentage = Math.min(delta / duration, 1);
@@ -158,11 +174,11 @@ const ui = (() => {
 		}
 
 		return {
-			start(time, length) {
+			start(time, length, speed) {
 				active = true;
-				
+			  if (speed != false) song_speed = speed;
 				began = time;
-				duration = length;
+				duration = length * song_speed;
 
 				length_min = Math.floor(duration / 1000 / 60);
 				length_sec = Math.floor(duration / 1000) % 60;
@@ -231,6 +247,13 @@ const ui = (() => {
 			var time = data.time;
 			var mod_data = data.status.mod;
 			var visibility = "visible";
+			var ip = query.get("ip");
+			var diff_time = 0;
+			if (ip && ip != "localhost" && ip != "127.0.0.1") {
+				diff_time = Date.now() - data.time;
+				console.log(diff_time);
+			}
+			timer.start(beatmap.start + diff_time, beatmap.length, mod_data.songSpeedMultiplier);
 			failed = false;
 			mod_instaFail = mod_data.instaFail;
 			mod_batteryEnergy = mod_data.batteryEnergy;
@@ -327,6 +350,7 @@ const ui = (() => {
 				if (mod_data.noFail === true) {
 					mod_nf.innerText = "";
 				} else {
+					mod_nf.style.color = "yellow";
 					mod_nf.innerText = "No NF!";
 				}
 			}
@@ -338,8 +362,6 @@ const ui = (() => {
 				if (html_id["pre_bsr"])      pre_bsr.innerText = pre_map.key;
 				if (html_id["pre_bsr_text"]) pre_bsr_text.innerText = pre_bsr_text_org;
 			}
-
-			timer.start(Date.now(), beatmap.length);
 			if (typeof op_beatmap !== "undefined") op_beatmap(data,now_map,pre_map);
 		}
 	})();
