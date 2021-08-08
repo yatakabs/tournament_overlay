@@ -7,7 +7,6 @@ const ui = (() => {
 	var mod_instaFail = false;
 	var mod_batteryEnergy = false;
 	var obstacle_time = 0;
-	var failed = false;
 
 	const performance = (() => {
 		const cut_energy = 1;
@@ -38,7 +37,6 @@ const ui = (() => {
 			if (html_id["miss"])  miss.innerText = performance.missedNotes;
 			if (typeof performance.softFailed !== "undefined") {
 				if (performance.softFailed === true) {
-					failed = true;
 					now_energy = null;
 					if (html_id["energy"]) energy.innerText = "NF";
 					if (html_id["energy_group"] && energy_display) energy_group.setAttribute("style", "visibility: hidden");
@@ -103,14 +101,8 @@ const ui = (() => {
 					}
 				}
 				if (now_energy > 100) now_energy = 100;
-				if (data.event === "softFailed") {
-					now_energy = null;
-					failed = true;
-				}
+				if (data.event === "failed") now_energy = 0;
 				if (now_energy < 0) now_energy = 0;
-				if (failed) {
-					now_energy = 0;
-  			}
 				if (html_id["energy"]) energy.innerText = Math.round(now_energy) + "%";
 				if (html_id["energy_bar"]) energy_bar.setAttribute("style", `width: ${Math.round(now_energy)}%`);
 			}
@@ -254,7 +246,6 @@ const ui = (() => {
 				console.log(diff_time);
 			}
 			timer.start(beatmap.start + diff_time, beatmap.length, mod_data.songSpeedMultiplier);
-			failed = false;
 			mod_instaFail = mod_data.instaFail;
 			mod_batteryEnergy = mod_data.batteryEnergy;
 			if (mod_instaFail === false && mod_batteryEnergy === false) {
