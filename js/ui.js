@@ -34,7 +34,13 @@ const ui = (() => {
 			if (html_id["raw_score"]) raw_score.innerText = format(performance.rawScore);
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"])  rank.innerText = performance.rank;
-			if (html_id["miss"])  miss.innerText = performance.missedNotes;
+			if (html_id["miss"]) {
+				if (performance.passedNotes === performance.combo) {
+					miss.innerText = "FC";
+				} else {
+					miss.innerText = performance.missedNotes;
+				}
+			}
 			if (typeof performance.softFailed !== "undefined") {
 				if (performance.softFailed === true) {
 					now_energy = null;
