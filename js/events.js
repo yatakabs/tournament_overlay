@@ -67,6 +67,16 @@ const events = {
 		if (typeof op_energyChanged !== "undefined") op_energyChanged(data);
 	},
 
+	beatmapEvent(data) {
+		if (typeof data.status.performance !== "undefined") {
+			var song_time = data.status.performance.currentSongTime;
+			if (typeof song_time !== "undefined") {
+				ui.timer.song_time_update(song_time);
+			}
+		}
+	},
+	
+
 	pause(data) {
 		var ip = query.get("ip");
 		var diff_time = 0;

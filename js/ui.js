@@ -198,6 +198,11 @@ const ui = (() => {
 				active = false;
 				began = undefined;
 				duration = undefined;
+			},
+
+			song_time_update(song_time) {
+				began = Date.now() - Math.floor(song_time * 1000 / song_speed);
+				update();
 			}
 		}
 	})();
