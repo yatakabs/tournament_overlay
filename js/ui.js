@@ -7,6 +7,7 @@ const ui = (() => {
 	var mod_instaFail = false;
 	var mod_batteryEnergy = false;
 	var obstacle_time = 0;
+	var full_combo = true;
 
 	const performance = (() => {
 		const cut_energy = 1;
@@ -22,7 +23,7 @@ const ui = (() => {
 		if (html_id["miss"])       var miss = document.getElementById("miss");
 		if (html_id["energy"])     var energy = document.getElementById("energy");
 		if (html_id["energy_bar"]) var energy_bar = document.getElementById("energy_bar");
-		if (html_id["mod_nf"])        var mod_nf = document.getElementById("mod_nf");
+		if (html_id["mod_nf"])     var mod_nf = document.getElementById("mod_nf");
 
 		function format(number) {
 			return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -34,8 +35,17 @@ const ui = (() => {
 			if (html_id["raw_score"]) raw_score.innerText = format(performance.rawScore);
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"])  rank.innerText = performance.rank;
+			if (full_combo) {
+				if (performance.passedNotes !== performance.combo) full_combo = false;
+				switch(data.event) {
+					case "noteMissed":
+					case "bombCut":
+					case "obstacleEnter":
+					full_combo = false;
+				}
+			}
 			if (html_id["miss"]) {
-				if (performance.passedNotes === performance.combo) {
+				if (full_combo) {
 					miss.innerText = "FC";
 				} else {
 					miss.innerText = performance.missedNotes;
@@ -252,6 +262,7 @@ const ui = (() => {
 			var visibility = "visible";
 			var ip = query.get("ip");
 			var diff_time = 0;
+			full_combo = true;
 			if (ip && ip != "localhost" && ip != "127.0.0.1") {
 				diff_time = Date.now() - data.time;
 				console.log(diff_time);
