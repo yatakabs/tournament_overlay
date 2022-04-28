@@ -40,9 +40,11 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
        
       ![image](https://rynan4818.github.io/beatsaber-overlay-httpstatus.png)
   
-   - [HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)  (2022/4/29現在 BeatSaber1.20.0以降の方はこちらのみ対応)
+   - [HttpSiraStatus](https://github.com/denpadokei/HttpSiraStatus/releases)  (2022/4/29現在 BeatSaber1.20.0以降の方はこちらのみ対応)
    
        上記からダウンロードして解凍した`HttpSiraStatus.dll`をBeatSaberのインストールフォルダの`Plugins`フォルダにコピーします。
+       
+       ダウンロードするzipファイル名の`bs*.**.**`の部分が自分の使用しているBeatSaberのバージョンと同じか、小さくて一番近いものを使用してください。
    
       ![image](https://rynan4818.github.io/beatsaber-overlay-denpadokei.png)
 
