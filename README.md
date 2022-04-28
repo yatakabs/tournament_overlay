@@ -30,19 +30,21 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
 ## 初めての方向けの詳しい説明
 
-1. HTTP Statusのインストール
+1. HTTP Status または HttpSiraStatus のインストール
 
-    Beat Saberからオーバーレイにデータを送信するために下記のmodをインストールしてください。
+    Beat Saberからオーバーレイにデータを送信するために下記のどちらか一方のmodをインストールしてください。
 
-   ModAssistantを使用する場合は依存modが自動的にインストールされるため簡単です。
-
-   - [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)
+   - [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status) (2022/4/29現在 BeatSaber1.19.1まで対応)
 
       ![image](https://rynan4818.github.io/beatsaber-overlay-httpstatus.png)
-	
-   もし、BeatSaberのバージョンアップ直後などでModAssistantに登録が無い時は、手動でインストールが必要です。
+  
+   - [HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)  (2022/4/29現在 BeatSaber1.20.0以降の方はこちらのみ対応)
+   
+      ![image](https://rynan4818.github.io/beatsaber-overlay-denpadokei.png)
 
-   その場合は、ModAssistantにある**websocket-sharpのインストールが必須**です。入れ忘れトラブルが多いので注意して下さい。
+   HTTP Status、HttpSiraStatus どちらも、ModAssistantにある**websocket-sharpのインストールが必須**です。
+   
+   入れ忘れトラブルが多いので注意して下さい。
 
    ![image](https://rynan4818.github.io/beatsaber-overlay-websocket-sharp.png)
    
