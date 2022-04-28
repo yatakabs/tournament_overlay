@@ -36,9 +36,13 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    - [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status) (2022/4/29現在 BeatSaber1.19.1まで対応)
 
+       ModAssistantからインストールします。
+       
       ![image](https://rynan4818.github.io/beatsaber-overlay-httpstatus.png)
   
    - [HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)  (2022/4/29現在 BeatSaber1.20.0以降の方はこちらのみ対応)
+   
+       上記からダウンロードして解凍した`HttpSiraStatus.dll`をBeatSaberのインストールフォルダの`Plugins`フォルダにコピーします。
    
       ![image](https://rynan4818.github.io/beatsaber-overlay-denpadokei.png)
 
