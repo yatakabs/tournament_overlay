@@ -8,6 +8,7 @@ const ui = (() => {
 	var mod_batteryEnergy = false;
 	var obstacle_time = 0;
 	var full_combo = true;
+	var before_combo = 0;
 
 	const performance = (() => {
 		const cut_energy = 1;
@@ -36,7 +37,7 @@ const ui = (() => {
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"])  rank.innerText = performance.rank;
 			if (full_combo) {
-				if (performance.passedNotes !== performance.combo) full_combo = false;
+				if (before_combo > performance.combo) full_combo = false;
 				switch(data.event) {
 					case "noteMissed":
 					case "bombCut":
@@ -44,6 +45,7 @@ const ui = (() => {
 					full_combo = false;
 				}
 			}
+			before_combo = performance.combo;
 			if (html_id["miss"]) {
 				if (full_combo) {
 					miss.innerText = "FC";
@@ -263,6 +265,7 @@ const ui = (() => {
 			var ip = query.get("ip");
 			var diff_time = 0;
 			full_combo = true;
+			before_combo = 0;
 			if (ip && ip != "localhost" && ip != "127.0.0.1") {
 				diff_time = Date.now() - data.time;
 				console.log(diff_time);
