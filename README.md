@@ -78,6 +78,9 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
     ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting8.png)
 
+### シーンコントロール使用時の注意点
+[obs-control](https://github.com/rynan4818/obs-control)等でOBSのシーンコントロールを使用している場合は、メニュー用シーンとゲームプレイ用シーンの両方に大会用オーバーレイの追加をお願いします。（ゲームプレイ用シーンのみだと、プレイ終了時に消えてしまうため）
+
 ## 動作しない場合
 もしも動作しない場合は、Beat Saber Overlay 改良版の[トラブルシューティング](https://github.com/rynan4818/beat-saber-overlay/blob/master/Troubleshooting.md)を参照してください。
 
