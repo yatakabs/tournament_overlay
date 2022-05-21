@@ -24,7 +24,8 @@ const ui = (() => {
 		if (html_id["miss"])       var miss = document.getElementById("miss");
 		if (html_id["energy"])     var energy = document.getElementById("energy");
 		if (html_id["energy_bar"]) var energy_bar = document.getElementById("energy_bar");
-		if (html_id["mod_nf"])     var mod_nf = document.getElementById("mod_nf");
+		if (html_id["mod_nf"]) var mod_nf = document.getElementById("mod_nf");
+		if (html_id["head_distance"]) var headDistance = document.getElementById("head_distance");
 
 		function format(number) {
 			return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -123,9 +124,16 @@ const ui = (() => {
 				if (now_energy < 0) now_energy = 0;
 				if (html_id["energy"]) energy.innerText = Math.round(now_energy) + "%";
 				if (html_id["energy_bar"]) energy_bar.setAttribute("style", `width: ${Math.round(now_energy)}%`);
+
 			}
 			
-			if (typeof op_performance !== "undefined") op_performance(data,now_energy);
+			if (typeof op_performance !== "undefined") op_performance(data, now_energy);
+
+			if (typeof performance.HeadDistanceTravelled !== "undefined" && html_id["head_distance"]) {
+				if (typeof performance.HeadDistanceTravelled.Distance !== "undefined") {
+					headDistance.innerText = performance.HeadDistanceTravelled.Distance.toFixed(3) + "m";
+				}
+			}
 		}
 	})();
 

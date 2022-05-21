@@ -5,7 +5,7 @@ var pre_bsr_data = null;
 const check_id = ["overlay","rank","percentage","combo","score","progress","mod_nf","raw_score",
                   "image","title","subtitle","artist","difficulty","bpm","njs","bsr","bsr_text",
                   "mapper","mapper_header","mapper_footer","song_time","song_length","mod","miss",
-                  "pre_bsr","pre_bsr_text","njs_text","energy","energy_bar","energy_group"]
+                  "pre_bsr","pre_bsr_text","njs_text","energy","energy_bar","energy_group","head_distance"]
 var html_id = {};
 for (var i = 0, len = check_id.length; i < len; ++i) {
 	if (document.getElementById(check_id[i]) === null) {
