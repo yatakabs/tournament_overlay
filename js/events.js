@@ -105,5 +105,10 @@ const events = {
 			ui.hide();
 		}
 		if (typeof op_menu !== "undefined") op_menu(data);
+	},
+
+	other(data) {
+		ui.other(data);
+		if (typeof op_other !== "undefined") op_other(data);
 	}
 }

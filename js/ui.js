@@ -137,6 +137,22 @@ const ui = (() => {
 		}
 	})();
 
+	const other = (() => {
+		if (html_id["head_distance"]) var headDistance = document.getElementById("head_distance");
+
+		return (data) => {
+			const other = data.other;
+			console.info(data);
+			if (typeof other !== "undefined") {
+				if (typeof other.HeadDistanceTravelled !== "undefined" && html_id["head_distance"]) {
+					if (typeof other.HeadDistanceTravelled.Distance !== "undefined") {
+						headDistance.innerText = other.HeadDistanceTravelled.Distance.toFixed(3) + "m";
+					}
+				}
+			}
+		}
+	})();
+
 	const timer = (() => {
 		const radius = 30;
 		const circumference = radius * Math.PI * 2;
@@ -402,6 +418,7 @@ const ui = (() => {
 		},
 
 		performance,
+		other,
 		timer,
 		beatmap
 	}
