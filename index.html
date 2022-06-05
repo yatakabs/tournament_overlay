@@ -1,43 +1,89 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>BSDP Overlay like</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="bsdp-like.css">
-	</head>
-	<body style="zoom:1.2;">
-		<div class="scoreStats" id="scoreStats">
-			<h2 class="time"><span id="song_time">Time</span>/<span id="song_length">Length</span></h2>
-			<h2 class="score" id="raw_score">Score</h2>
-			<h2 class="accuracy" id="percentage">Accuracy</h2>
-			<h2 class="combo" id="combo">Combo</h2>
-			<h2 class="miss" id="miss">Miss</h2>
-			<h2 class="head_distance" id="head_distance">HDT</h2>
-			<h2 class="mod_nf" id="mod_nf"></h2>
-		</div>
 
-		<div class="mapInfo" id="mapInfo" style="display: none;">
-			<p class="preBSR"><span id="pre_bsr_text">Pre BSR: </span><span id="pre_bsr">00000</span></p>
-			<div>
-				<div class="beatmapImageContainer">
-					<img class="beatmapImage" id="image">
-				</div>
-				<div class="beatmapInfo">
-					<p class="bsr"><span id="bsr_text">BSR: </span><span id="bsr">00000</span></p>
-					<p class="mapper" id="mapper">Mapper</p>
-					<p class="artist" id="artist">ArtistName</p>
-					<h1 class="song" id="title">SongName</h1>
-				</div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1280">
+	<title>BSDP Overlay like</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="bsdp-like.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body style="zoom: 1.2;">
+	<div class="scoreStats" id="scoreStats">
+		<h2 class="time"><span id="song_time">Time</span>/<span id="song_length">Length</span></h2>
+		<h2 class="score" id="raw_score">Score</h2>
+		<h2 class="accuracy" id="percentage">Accuracy</h2>
+		<h2 class="combo" id="combo">Combo</h2>
+		<h2 class="miss" id="miss">Miss</h2>
+		<h2 class="mod_nf" id="mod_nf"></h2>
+		<h2 class="head_distance hdt_param">
+			<span id="head_distance">HDT</span>
+			<span id="bottachi_factor">BpFactor</span>
+		</h2>
+		<h2 class="bottachi_point hdt_param" id="bottachi_point_container">
+			<span id="bottachi_point">BP</span>
+			<span class="bottachi_fail hdt_param hidden" id="bottachi_fail">(failed)
+		</h2>
+		</h2>
+
+	</div>
+
+	<div class="mapInfo" id="mapInfo" style="display: none;">
+		<p class="preBSR"><span id="pre_bsr_text">Pre BSR: </span><span id="pre_bsr">00000</span></p>
+		<div>
+			<div class="beatmapImageContainer">
+				<img class="beatmapImage" id="image">
+			</div>
+			<div class="beatmapInfo">
+				<p class="bsr"><span id="bsr_text">BSR: </span><span id="bsr">00000</span></p>
+				<p class="mapper" id="mapper">Mapper</p>
+				<p class="artist" id="artist">ArtistName</p>
+				<h1 class="song" id="title">SongName</h1>
 			</div>
 		</div>
-		<script src="./js/options.js"></script>
+	</div>
+	<script src="./js/options.js"></script>
 
-		<script src="./js/ui.js"></script>
-		<script src="./js/events.js"></script>
-		<script src="./js/manager.js"></script>
-	</body>
+	<script src="./js/ui.js"></script>
+	<script src="./js/events.js"></script>
+	<script src="./js/manager.js"></script>
+
+	<!-- <script>
+		const random = true;
+		const updateInterval = 1000;
+		const shouldFailWhenRandom = undefined; // true, false, or undefined;
+		const emulateSongHash = ""; // "3A3FAD9879FC6F8F61B682742D48871C90DCA773";
+
+		if (random) {
+			ui.testBottachi(
+				minAcc = 80,
+				maxDistance = 10,
+				shouldFail = shouldFailWhenRandom,
+				interval = updateInterval,
+				songHash = emulateSongHash,
+			);
+		}
+		else {
+
+			ui.testBottachi2(
+				initialAcc = 100.0,
+				initalDistance = 0.0,
+				accStep = 3.253,
+				distnaceStep = 1.5123,
+				// minAcc = 60.0,
+				// maxDistance = 8,
+				minAcc = 0.0,
+				maxDistance = 250,
+				interval = updateInterval,
+				songHash = emulateSongHash,
+			);
+		}
+	</script> -->
+</body>
+
 </html>

@@ -1,0 +1,30 @@
+.hidden {
+    display: none;
+}
+
+.bottachi_fail {
+    color    : orangered;
+    font-size: 70%;
+}
+
+#bottachi_point {
+    color: cyan;
+}
+
+#bottachi_point.failed {
+    color: orangered;
+}
+
+.bottachi_point {}
+
+#bottachi_factor {
+    font-size: 70%;
+}
+
+#bottachi_factor::before {
+    content: "("
+}
+
+#bottachi_factor::after {
+    content: ")"
+}
