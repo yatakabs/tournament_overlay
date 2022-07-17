@@ -15,6 +15,11 @@ function connect() {
 		if (event) {
 			event(data);
 		}
+
+		if(typeof onlineScore !== "undefined" && onlineScore.onEvent)
+		{
+			onlineScore.onEvent(data);
+		}
 	});
 
 	socket.addEventListener("close", () => {
