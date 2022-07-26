@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HDT導入</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+    <article>
+        <h1>天下一ぼっ立ち舞踏会 プレイ環境セットアップガイド</h1>
+        <section id="procedures">
+            <proc-group>
+                <proc-group-title>Head Distance Travelled / 関連 Mod 導入方法</proc-group-title>
+                <p>
+                    天下一ぼっ立ち舞踏会に参加する方向けに、プレイ環境のセットアップ方法を示したドキュメントです。
+                </p>
+                <section>
+                    <h2>目次</h2>
+                    <div>
+                        <ol>
+                            <li><a href="#install-hdt">Head Distance Travelled のインストール</a> (必須)</li>
+                            <li><a href="#install-httphdtstatus">HttpHDTStatus のインストール</a> (必須)</li>
+                            <li><a href="#setup-tournament-overlay">HDT 対応 tournament-overlay の設定 (OBS Studio)</a> (必須)</li>
+                            <li><a href="#install-hdtcounter">HDTCounter のインストール</a> (任意)</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <proc-container>
+                    <proc-title id="install-hdt">Head Distance Travelled のインストール</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>Head Distance Travelled のダウンロードと配置</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-selections>
+                                    <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title><code>1.2*.*</code> の場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            <a href="https://github.com/denpadokei/HeadDistanceTravelled/releases/latest">Github</a>
+                                            から最新版の zip ファイルをダウンロード。
+                                            <br />
+                                            (<code>HeadDistanceTravelled-*.*.*-bs1.20.0-*.zip</code>)
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title>
+                                            <code>1.19.*</code> の場合 (<strong>非推奨</strong>)
+                                        </proc-selection-title>
+                                        <proc-selection-details>
+                                            yas に直接、個別連絡をしてください。
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title>
+                                            <code>1.18.*</code> の場合 (<strong>強く非推奨</strong>)
+                                        </proc-selection-title>
+                                        <proc-selection-details>
+                                            yas に直接、個別連絡をしてください。
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>
+                                zipを解凍して <code>HeadDistanceTravelled.dll</code> を <code>Plugins</code> フォルダにコピー
+                            </proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>ダウンロードした zip ファイルを解凍</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <expandable-image src="images/hdt_extracted.png"></expandable-image>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>解凍したファイルを Plugins フォルダへ移動</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                解凍して現れた
+                                                <code>Plugins\HeadDistanceTravelled.dll</code>
+                                                を Beat Saber のインストールディレクトリにある <code>Plugins</code> フォルダにコピー
+                                            </p>
+                                            <example-container>
+                                                Beat Saber のインストールパスが下記の場合
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                コピー後の <code>HeadDistanceTravelled.dll</code> が下記の場所に存在する状態となる。
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HeadDistanceTravelled.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="install-httphdtstatus">
+                    <proc-title>HttpHDTStatus のインストール</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>HttpHDTStatus.dll のインストール</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>HttpHDTStatus のダウンロードと配置</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <proc-selections>
+                                                <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                                <proc-selection>
+                                                    <proc-selection-title><code>1.2*.*</code> の場合</proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a　href ="https://github.com/yatakabs/HttpHDTStatus/releases/tag/0.0.2-yas">
+                                                            Github</a>
+                                                            から最新版の zip ファイルをダウンロード。
+                                                            <br />
+                                                            (<code>HttpHDTStatus-0.0.2-yas-bs1.20.0-9400702.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>
+                                                        <code>1.19.*</code> の場合 (<strong>非推奨</strong>)
+                                                    </proc-selection-title>
+                                                    <proc-selection-details>
+                                                        yas に直接、個別連絡をしてください。
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>
+                                                        <code>1.18.*</code> の場合 (<strong>強く非推奨</strong>)
+                                                    </proc-selection-title>
+                                                    <proc-selection-details>
+                                                        yas に直接、個別連絡をしてください。
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                            </proc-selections>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>ダウンロードした zip ファイルを解凍</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <expandable-image src="images/httphdtstatus_extracted.png">
+                                            </expandable-image>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>解凍したファイルを Plugins フォルダへ移動</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                解凍して現れた
+                                                <code>Plugins\HttpHDTStatus.dll</code>
+                                                を Beat Saber のインストールディレクトリにある <code>Plugins</code> フォルダにコピー
+                                            </p>
+                                            <example-container>
+                                                Beat Saber のインストールパスが下記の場合
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                コピー後の <code>HttpHDTStatus.dll</code> が下記の場所に存在する状態となる。
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HttpHDTStatus.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Mod Assistant から websocket-sharp をインストール</proc-steptitle>
+                            <proc-stepdesc>
+                                <warning-container>すでに websocket-sharp がインストール済みであれば、このステップは飛ばしてください。</warning-container>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>
+                                            <code>Mod Assistant</code> を起動し、<code>Mod</code> タブを開く
+                                        </proc-steptitle>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>
+                                            <code>Libraries</code> グループにある <code>websocket-sharp</code> を選択する
+                                        </proc-steptitle>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>右下の <code>Install or Update</code> ボタンを押して、インストールする</proc-steptitle>
+                                    </proc-step>
+                                </proc-substeps>
+                                <expandable-image src="images/websocket-sharp-modassistant-installation.png">
+                                </expandable-image>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>HttpSiraStatus のインストール</proc-steptitle>
+                            <proc-stepdesc>
+                                <warning-container>すでに HttpSiraStatus がインストール済みであれば、このステップは飛ばしてください。</warning-container>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>HttpSiraStatus のダウンロードと配置</proc-steptitle>
+                                        <proc-selections>
+                                            <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                            <proc-selection>
+                                                <proc-selection-title><code>1.21.*</code> 以降の場合</proc-selection-title>
+                                                <proc-selection-details>
+                                                    <a href="https://github.com/denpadokei/HttpSiraStatus/releases/latest">Github</a>
+                                                    から最新版の zip ファイルをダウンロード。
+                                                    <br />
+                                                    (<code>HttpSiraStatus-8.*.*-bs1.21.0-*.zip</code>)
+                                                </proc-selection-details>
+                                            </proc-selection>
+                                            <proc-selection>
+                                                <proc-selection-title><code>1.20.*</code> の場合</proc-selection-title>
+                                                <proc-selection-details>
+                                                    <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/7.1.5">Github</a>
+                                                    から最新版の zip ファイルをダウンロード。
+                                                    <br />
+                                                    (<code>HttpSiraStatus-7.1.5-bs1.20.0-609db6f.zip</code>)
+                                                </proc-selection-details>
+                                            </proc-selection>
+                                            <proc-selection>
+                                                <proc-selection-title>
+                                                    <code>1.19.*</code> の場合 (<strong>非推奨</strong>)
+                                                </proc-selection-title>
+                                                <proc-selection-details>
+                                                    <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/6.1.2">Github</a>
+                                                    から最新版の zip ファイルをダウンロード。
+                                                    <br />
+                                                    (<code>HttpSiraStatus-6.1.2-bs1.19.1-a0d11bd.zip</code>)
+                                                </proc-selection-details>
+                                            </proc-selection>
+                                            <proc-selection>
+                                                <proc-selection-title>
+                                                    <code>1.18.*</code> の場合 (<strong>強く非推奨</strong>)
+                                                </proc-selection-title>
+                                                <proc-selection-details>
+                                                    <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/5.3.3">Github</a>
+                                                    から最新版の zip ファイルをダウンロード。
+                                                    <br />
+                                                    (<code>HttpSiraStatus-5.3.3-bs1.17.0-da8904a.zip</code>)
+                                                </proc-selection-details>
+                                            </proc-selection>
+                                        </proc-selections>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>ダウンロードした zip ファイルを解凍</proc-steptitle>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>解凍したファイルを Plugins フォルダへ移動</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                解凍して現れた
+                                                <code>Plugins\HttpHDTStatus.dll</code>
+                                                を Beat Saber のインストールディレクトリにある <code>Plugins</code> フォルダにコピー
+                                            </p>
+                                            <example-container>
+                                                Beat Saber のインストールパスが下記の場合
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                コピー後の <code>HttpHDTStatus.dll</code> が下記の場所に存在する状態となる。
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HttpHDTStatus.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>不要なファイルを削除する</proc-steptitle>
+                            <proc-stepdesc>
+                                Mod の干渉を防ぐため、もし Beat Saber の <code>Plugins</code> フォルダに下記のファイルがあれば、それを削除する。
+                                <ul>
+                                    <li><code>BeatSaberHttpStatus.dll</code></li>
+                                    <li><code>HttpStatus.dll</code></li>
+                                </ul>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="setup-tournament-overlay">
+                    <proc-title>HDT 対応 tournament-overlay の設定 (OBS Studio)</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>OBS に Browser Source を追加する</proc-steptitle>
+                            <proc-stepdesc>
+                                <ol>
+                                    <li>
+                                        <code>URL</code> には <code>http://bstoverlay.yatakabs.com/</code> を指定する。
+                                        <info-container>
+                                            Beat Saber を実行するマシンと OBS を実行するマシンが同一であれば、SSL を有効にした
+                                            <code>https://bstoverlay.yatakabs.com/</code> も利用可能。
+                                        </info-container>
+                                    </li>
+                                    <li>
+                                        <code>Width</code> には、配信の画面解像度の横幅を指定する。
+                                        <example-container>
+                                            <ul>
+                                                <li>配信解像度が <code>1920x1080 (1080p)</code> であれば、<code>1920</code></li>
+                                                <li>配信解像度が <code>1280x720 (720p)</code> であれば、<code>1280</code></li>
+                                            </ul>
+                                        </example-container>
+                                    </li>
+                                    <li>
+                                        <code>Height</code> には、配信の画面解像度の縦幅を指定する。
+                                        <example-container>
+                                            <ul>
+                                                <li>配信解像度が <code>1920x1080 (1080p)</code> であれば、<code>1080</code></li>
+                                                <li>配信解像度が <code>1280x720 (720p)</code> であれば、<code>720</code></li>
+                                            </ul>
+                                        </example-container>
+                                    </li>
+                                </ol>
+                                <expandable-image src="images/obs-add-browser-source.png"></expandable-image>
+                                <expandable-image src="images/obs-browser-source-options.png"></expandable-image>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>OBS に Browser Source を前面に移動し、画面全体に表示する。</proc-steptitle>
+                            <proc-stepdesc>
+                                <ol>
+                                    <li>追加した Browser Source は、Beat Saber の Game Capture Source より前面に表示されるよう順番を調整する。</li>
+                                    <li>
+                                        追加した Browser Source は、画面全体に等倍で表示されていることを確認する。
+                                        <info-container>
+                                            HDT 対応 tournament-overlay は、原則としてこの指示通り、画面上部に表示されるよう配置してください。
+                                        </info-container>
+                                    </li>
+                                </ol>
+
+                                <expandable-image src="images/obs-browser-source-order.png"></expandable-image>
+                                <expandable-image src="images/obs-browser-source-size.png"></expandable-image>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="install-hdtcounter">
+                    <proc-title>HDTCounter のインストール</proc-title>
+                    <p>
+                        HeadDistanceTravelled は標準で頭上に移動距離が表示されるため自身でリアルタイムに移動距離の確認ができません。
+                        この <code>HDTCounter</code> Mod を利用すると、Counter+ のカウンターとして移動距離が表示できるようになります。
+                    </p>
+
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>HttpHDTStatus.dll のインストール</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>HttpHDTStatus のダウンロードと配置</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <proc-selections>
+                                                <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                                <proc-selection>
+                                                    <proc-selection-title><code>1.2*.*</code> の場合</proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a href="https://github.com/rynan4818/HDTCounter/releases/latest">Github</a>
+                                                        から最新版の zip ファイルをダウンロード。
+                                                        <br />
+                                                        (<code>HDTCounter-1.0.0-bs1.20.0-8261247.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>それ以前のバージョン</proc-selection-title>
+                                                    <proc-selection-details>
+                                                        非対応です。
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                            </proc-selections>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>ダウンロードした zip ファイルを解凍</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <expandable-image src="images/hdtcounter_extracted.png">
+                                            </expandable-image>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>解凍したファイルを Plugins フォルダへ移動</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                解凍して現れた
+                                                <code>Plugins\HDTCounter.dll</code>
+                                                を Beat Saber のインストールディレクトリにある <code>Plugins</code> フォルダにコピー
+                                            </p>
+                                            <example-container>
+                                                Beat Saber のインストールパスが下記の場合
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                コピー後の <code>HDTCounter.dll</code> が下記の場所に存在する状態となる。
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HDTCounter.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+            </proc-group>
+        </section>
+    </article>
+
+    <script src="scripts/proc-elements.js"></script>
+</body>
+
+</html>
