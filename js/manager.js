@@ -16,9 +16,13 @@ function connect() {
 			event(data);
 		}
 
-		if(typeof onlineScore !== "undefined" && onlineScore.onEvent)
-		{
-			onlineScore.onEvent(data);
+		try {
+			if (typeof onlineScore !== "undefined" && onlineScore.onEvent) {
+				onlineScore.onEvent(data);
+			}
+		}
+		catch (error) {
+			console.error("unexpected error with online score submission.", error)
 		}
 	});
 
