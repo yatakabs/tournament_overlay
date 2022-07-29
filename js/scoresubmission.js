@@ -139,7 +139,7 @@ else {
 
                     try {
                         isCurrentSongAcceptable = (
-                            data.status.performance.currentSongTime <= 0 &&
+                            data.status.performance.currentSongTime < 20 &&
                             data.status.mod.multiplier == 1 &&
                             data.status.mod.songSpeedMultiplier == 1
                         );
