@@ -1,6 +1,6 @@
 const showDebugLog = false;
 const submissionInterval = 1000;
-const localTest = false;
+const localTest = true;
 
 // setup online score submission
 const scoresHubUrl = localTest
@@ -231,6 +231,7 @@ else {
                     PlayerId: playerId,
                     SongSessionId: `${matchId}-${playerId}-${currentBeatmap.songHash}-${currentBeatmap.start}`.toLowerCase(),
                     Timestamp: timestamp,
+                    Performance: currentPerformance,
                     Beatmap: currentBeatmap,
                     SongStartEvent: songStartEvent,
                     HeadDistance: currentHeadDistance,
