@@ -1,6 +1,6 @@
 const showDebugLog = false;
 const submissionInterval = 1000;
-const localTest = true;
+const localTest = false;
 
 // setup online score submission
 const scoresHubUrl = localTest
