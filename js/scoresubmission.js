@@ -7,7 +7,6 @@ const scoresHubUrl = localTest
     ? "https://localhost:7015/scoreshub"
     : "https://casual.bott.archi/scoreshub";
 
-
 // parse parameters
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
@@ -122,9 +121,8 @@ else {
                     // console.debug("performance updated.", currentPerformance);
                 }
 
-                if(data.event == "pause")
-                {
-                    if(currentPerformance.currentSongTime > 0) {
+                if (data.event == "pause") {
+                    if (currentPerformance.currentSongTime > 0) {
                         isCurrentSongAcceptable = false;
                         console.warn("Pause detected. Score submission disabled.");
                     }
@@ -168,13 +166,13 @@ else {
                         console.warn("No HDT data received. Score submission disabled.");
                         isCurrentSongAcceptable = false;
                     }
-                    
+
                     var playedDuration = data.time - songStartEvent.status.beatmap.start;
-                    if(showDebugLog){
-                        console.info("PlayedDuration: ", playedDuration, "songLength", currentBeatmap.length, "diff", currentBeatmap.length - playedDuration );
+                    if (showDebugLog) {
+                        console.info("PlayedDuration: ", playedDuration, "songLength", currentBeatmap.length, "diff", currentBeatmap.length - playedDuration);
                     }
 
-                    if(currentBeatmap.length - playedDuration > 10000){
+                    if (currentBeatmap.length - playedDuration > 10000) {
                         console.warn("Suspicious skip detected. Score submission disabled.");
                         isCurrentSongAcceptable = false;
                     }
@@ -182,22 +180,18 @@ else {
                     console.info("Song finished. isAcceptable:", isCurrentSongAcceptable, data, songStartEvent);
 
 
-                    if (isCurrentSongAcceptable) {
-                        submissionList.push({
-                            MatchId: matchId,
-                            PlayerId: playerId,
-                            SongSessionId: `${matchId}-${playerId}-${currentBeatmap.songHash}-${currentBeatmap.start}`.toLowerCase(),
-                            Timestamp: timestamp,
-                            Performance: currentPerformance,
-                            HeadDistance: currentHeadDistance,
-                            Beatmap: currentBeatmap,
-                            SongStartEvent: songStartEvent,
-                            IsFinished: true,
-                        });
-                    }
-                    else {
-                        console.warn("Current performance is not acceptable. Skipping submission.", currentBeatmap, currentPerformance, songStartEvent);
-                    }
+                    submissionList.push({
+                        MatchId: matchId,
+                        PlayerId: playerId,
+                        SongSessionId: `${matchId}-${playerId}-${currentBeatmap.songHash}-${currentBeatmap.start}`.toLowerCase(),
+                        Timestamp: timestamp,
+                        Performance: currentPerformance,
+                        HeadDistance: currentHeadDistance,
+                        Beatmap: currentBeatmap,
+                        SongStartEvent: songStartEvent,
+                        IsFinished: true,
+                        IsAcceptable: isCurrentSongAcceptable,
+                    });
                 }
             }
             catch (error) {
@@ -241,6 +235,7 @@ else {
                     SongStartEvent: songStartEvent,
                     HeadDistance: currentHeadDistance,
                     IsFinished: false,
+                    IsAcceptable: isCurrentSongAcceptable,
                 };
 
                 if (showDebugLog) {
