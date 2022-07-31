@@ -220,7 +220,7 @@ const ui = (() => {
 	})();
 
 	const beatmap = (() => {
-		const beatsaver_url = 'https://beatsaver.com/api/maps/by-hash/';
+		const beatsaver_url = 'https://api.beatsaver.com/maps/hash/';
 		const request_timeout = 5000; //msec
 		if (html_id["image"])         var cover = document.getElementById("image");
 

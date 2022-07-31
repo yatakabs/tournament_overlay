@@ -13,20 +13,29 @@
 
 ## 使用方法
 
-[Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBSのブラウザソースに設定して使用可能です。
+[Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBS等の配信ツールにブラウザソースとして設定して使用可能です。
+
+※以下の配信ツールで動作確認済みです
+- OBS Studio
+- Streamlabs Desktop
+- XSplit Broadcaster
+- Twitch Studio Beta
 
 ※プログラム修正時に自動反映させるため、ダウンロードせずに下記URLでお使い下さい。
 
 ※表示位置はデフォルトで上部になっています。OBSの設定で好きな位置に移動可能ですが、大会では視聴者は頻繁に見比べることになるため上部で統一されている方が見やすいと思います。
 
-## 720p(1280x720)用
+## 大会用オーバーレイ表示用URL(スケール自動調整：通常はこちらを使用)
 ```
 https://rynan4818.github.io/tournament_overlay/
 ```
-## 1080p(1920x1080)用 (上記の1.5倍スケール)
+### 1080p(1920x1080)用 (1.5倍スケール固定)※従来の互換用
 ```
 https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 ```
+
+## シーンコントロール使用時の注意点
+[obs-control](https://github.com/rynan4818/obs-control)等でOBSのシーンコントロールを使用している場合は、メニュー用シーンとゲームプレイ用シーンの両方に大会用オーバーレイの追加をお願いします。（ゲームプレイ用シーンのみだと、プレイ終了時に消えてしまうため）
 
 ## 初めての方向けの詳しい説明
 
@@ -34,13 +43,15 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
     Beat Saberからオーバーレイにデータを送信するために下記のどちらか一方のmodをインストールしてください。
 
-   - [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status) (2022/4/29現在 BeatSaber1.19.1まで対応)
+   **2022/7/31現在、BeatSaber1.20.0以降のバージョンではHttpSiraStatusのみ対応しています**
+
+   - [Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status) (2022/7/31現在 BeatSaber1.19.1まで対応)
 
        ModAssistantからインストールします。
        
       ![image](https://rynan4818.github.io/beatsaber-overlay-httpstatus.png)
   
-   - [HttpSiraStatus](https://github.com/denpadokei/HttpSiraStatus/releases)  (2022/4/29現在 BeatSaber1.20.0以降の方はこちらのみ対応)
+   - [HttpSiraStatus](https://github.com/denpadokei/HttpSiraStatus/releases)  (2022/7/31現在 BeatSaber1.20.0以降の方はこちらのみ対応)
    
        上記からダウンロードして解凍した`HttpSiraStatus.dll`をBeatSaberのインストールフォルダの`Plugins`フォルダにコピーします。
        
@@ -64,22 +75,17 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting2.png)
 
-4. 上記アドレス `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
+4. 大会用オーバーレイ表示用URL `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
+
+   また、画面サイズに合わせて幅・高さを設定します。(1920x1080等)
+
+   幅に合わせてオーバーレイの表示倍率が自動的に調整されます。
 
    ![image](https://rynan4818.github.io/tournament_overlay3.png)
-
-   ※画面サイズに合わせてサイズを設定します。(1280x720等)
-  
-   1080p(1920x1080)サイズの場合、1.5倍に拡大するため末尾に `?modifiers=scale` を追加して下さい。
-
-   ![image](https://rynan4818.github.io/tournament_overlay4.png)
 
 5. オーバーレイのソースの順序をゲームのソースよりも優先度を上げて、オーバーレイがゲーム画面に重ねて表示されるようにします。
 
     ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting8.png)
-
-### シーンコントロール使用時の注意点
-[obs-control](https://github.com/rynan4818/obs-control)等でOBSのシーンコントロールを使用している場合は、メニュー用シーンとゲームプレイ用シーンの両方に大会用オーバーレイの追加をお願いします。（ゲームプレイ用シーンのみだと、プレイ終了時に消えてしまうため）
 
 ## 動作しない場合
 もしも動作しない場合は、Beat Saber Overlay 改良版の[トラブルシューティング](https://github.com/rynan4818/beat-saber-overlay/blob/master/Troubleshooting.md)を参照してください。

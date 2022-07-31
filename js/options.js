@@ -2,6 +2,7 @@ const query = new URLSearchParams(location.search);
 var bsr_display = false;
 var disp_hidden = true;
 var pre_bsr_data = null;
+var auto_scale = true;
 const check_id = ["overlay","rank","percentage","combo","score","progress","mod_nf","raw_score",
                   "image","title","subtitle","artist","difficulty","bpm","njs","bsr","bsr_text",
                   "mapper","mapper_header","mapper_footer","song_time","song_length","mod","miss",
@@ -32,6 +33,9 @@ if (html_id["njs_text"])      var njs_text_org = document.getElementById("njs_te
 				if (modifier === "bsr") {
 					bsr_display = true;
 				}
+        if (modifier === "scale") {
+          auto_scale = false;
+        }
 				var link = document.createElement("link");
 				
 				link.setAttribute("rel", "stylesheet");
@@ -54,4 +58,8 @@ if (html_id["njs_text"])      var njs_text_org = document.getElementById("njs_te
 		// Legacy URL hash support
 		handlers.modifiers(location.hash.slice(1));
 	}
+  
+  if (auto_scale) {
+    document.documentElement.style.zoom = document.documentElement.offsetWidth / 1280;
+  }
 })();
