@@ -5,7 +5,7 @@ const localTest = false;
 // setup online score submission
 const scoresHubUrl = localTest
     ? "https://localhost:7015/scoreshub"
-    : "https://casual.bott.archi/scoreshub";
+    : "https://full.bott.archi/scoreshub";
 
 // parse parameters
 const params = new Proxy(new URLSearchParams(window.location.search), {

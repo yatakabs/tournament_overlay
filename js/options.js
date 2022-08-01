@@ -3,8 +3,8 @@ var bsr_display = false;
 var disp_hidden = true;
 var pre_bsr_data = null;
 var enable_hdt = true;
-var default_bp_factor = 10.0;
-var default_bp_failure_threshold = 5.0;
+var default_bp_factor = 20.0;
+var default_bp_failure_threshold = 3.0;
 
 const check_id = ["overlay", "rank", "percentage", "combo", "score", "progress", "mod_nf", "raw_score",
 	"image", "title", "subtitle", "artist", "difficulty", "bpm", "njs", "bsr", "bsr_text",
