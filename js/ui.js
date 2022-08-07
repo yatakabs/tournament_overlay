@@ -14,13 +14,30 @@ const ui = (() => {
 	let latestAccuracy = 0.0;
 
 	const hashBottachiFactorMap = new Map([
+		// WR/LR
 		["f7a8db3992e88a4d2f6959323214add66326d657", 20],
 		["b66e094113eda9f6b3bb406dd4a696a0f270fcc7", 10],
 		["7cb719cbeb9bc3dc3cd60af44eff03fcc729bbd7", 30],
 		["aeec8f913e0b564e248488b2993e087fd952eb4c", 30],
 		["b3eb8caf68e9abdbf8f3604f184e594d2f976a98", 20],
 		["76d023a4eba97f9889adc007d358070b0b228daa", 20],
-		["955b524cf6ca6aedd0419398cc975153eea0049b", 40]
+		["955b524cf6ca6aedd0419398cc975153eea0049b", 40],
+
+		// SF
+		["84bcff4756ac66bf1746824b0b221eb1e6a4aff2", 50],
+		["735ae30c85939316e9fb8fd47d64d7fa2a969a77", 15],
+		["cbe83b7c1a12caa37c533682bcbb2eed6cd05cf2", 10],
+		["0edc32c8b6414dacc62562c41953193f29e3b159", 20],
+		["8a21a022dc307435907c3595b8eaa9558de77ddd", 25],
+		["c2f36200d0101a81b3941773530c55bd9ef435d4", 20],
+		["739391bce83da64502bc2d02b68be852d22c33b3", 30],
+
+		// GF
+		["a5e944ec579c0885654584138f21ae9177faaa26", 30],
+		["d0641ddd926cd58c2dad888ec27094bd8d7a0a4a", 40],
+		["b2c9121d4a23184a419293ddfb00ec2bcc4b8a9c", 20],
+		["e1ec23f952595429962cb12f6501506c85cc21d9", 60],
+		["73ff0f6549288c081863f29a6a0c0090d91d5295", 100],
 	]);
 
 	const hashBottachiFailureThresholdMap = new Map();
