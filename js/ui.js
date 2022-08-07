@@ -15,6 +15,13 @@ const ui = (() => {
 
 	const hashBottachiFactorMap = new Map([
 		["3A3FAD9879FC6F8F61B682742D48871C90DCA773", 12.0], // Humanoid Legion (!bsr 21473) Expert+
+		["ceaf391e0447e5603a51c34047db94736e469259",15],
+		["f72f2e8372k6404db97c66cf9301c4984ef2ede4d",20],
+		["05806ec606eca53246db063c5ed881cf612b5ffe",30],
+		["eb27a5093132e1688a3dc7c56eaf62f9523cbf26",10],
+		["cb7da76c5b4e8a441b4f66f2e5d5a95200d6771c",30],
+		["bf50ecad4d7a61a80ef845892de7979f914e7eb1",20],
+		["20962adbbc615349d62f8ae1061fb6b8cb513712",20]
 	]);
 
 	const hashBottachiFailureThresholdMap = new Map();
