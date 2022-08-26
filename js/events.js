@@ -14,6 +14,7 @@ const events = {
 		ui.beatmap(data);
 		ui.performance(data);
 		ui.show();
+		ui.songStarted();
 		if (typeof op_songStart !== "undefined") op_songStart(data);
 	},
 
@@ -29,11 +30,13 @@ const events = {
 
 	obstacleEnter(data) {
 		ui.performance(data);
+		ui.obstacleEntered(data);
 		if (typeof op_obstacleEnter !== "undefined") op_obstacleEnter(data);
 	},
 
 	obstacleExit(data) {
 		ui.performance(data);
+		ui.obstacleExited(data);
 		if (typeof op_obstacleExit !== "undefined") op_obstacleExit(data);
 	},
 

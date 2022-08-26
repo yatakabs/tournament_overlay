@@ -13,6 +13,14 @@ const ui = (() => {
 	let latestDistance = 0.0;
 	let latestAccuracy = 0.0;
 
+	let obstaclesHitCount = 0;
+	let obstaclesHitDurationInMilliSeconds = 0;
+	let obstaclesEnteredAt = 0;
+	let obstaclesHitLastTime = 0;
+	let obstacleHit = false;
+	let inObstacle = false;
+	let lastInObstacle = false;
+
 	const hashBottachiFactorMap = new Map([
 		// WR/LR
 		["f7a8db3992e88a4d2f6959323214add66326d657", 20],
@@ -44,8 +52,12 @@ const ui = (() => {
 
 	const updateBottachi = () => {
 		if (enable_hdt) {
-			const factor = hashBottachiFactorMap.get(pre_songHash.toLowerCase()) || default_bp_factor;
-			const threshold = hashBottachiFailureThresholdMap.get(pre_songHash.toLowerCase()) || default_bp_failure_threshold;
+			const factor = pre_songHash
+				? hashBottachiFactorMap.get(pre_songHash.toLowerCase()) || default_bp_factor
+				: default_bp_factor;
+			const threshold = pre_songHash
+				? hashBottachiFailureThresholdMap.get(pre_songHash.toLowerCase()) || default_bp_failure_threshold
+				: default_bp_failure_threshold;
 
 			let bp = latestAccuracy - latestDistance * factor;
 			let failed = threshold == 0
@@ -92,6 +104,87 @@ const ui = (() => {
 			}
 		}
 	};
+
+	const updateObstaclesDisplay = (() => {
+		if (html_id["obstacles_hit_count"]) var obstaclesHitCountElement = document.getElementById("obstacles_hit_count");
+		if (html_id["obstacles_hit_duration"]) var obstaclesHitDurationElement = document.getElementById("obstacles_hit_duration");
+
+		return () => {
+			if (html_id["obstacles_hit_count"]) {
+				obstaclesHitCountElement.innerText = obstaclesHitCount;
+
+				if (obstacleHit) {
+					obstaclesHitCountElement.classList.remove("nohit");
+				}
+			}
+
+			if (html_id["obstacles_hit_duration"]) {
+				const currentDuration = obstaclesHitLastTime - obstaclesEnteredAt;
+				const totalTime = (obstaclesHitLastTime != 0 && obstaclesEnteredAt != 0)
+					? obstaclesHitDurationInMilliSeconds + currentDuration
+					: obstaclesHitDurationInMilliSeconds;
+
+				obstaclesHitDurationElement.innerText = (totalTime / 1000.0).toFixed(3) + "s";
+				console.info("hit_duration", obstaclesHitDurationInMilliSeconds, currentDuration, totalTime)
+
+				if (inObstacle != lastInObstacle) {
+					if (inObstacle) {
+						obstaclesHitDurationElement.classList.add("hit");
+					}
+					else {
+						obstaclesHitDurationElement.classList.remove("hit");
+					}
+
+					lastInObstacle = inObstacle;
+				}
+			}
+		}
+	})();
+
+	const songStarted = (() => {
+		return (data) => {
+			obstaclesHitCount = 0;
+			obstaclesHitDurationInMilliSeconds = 0;
+			obstaclesEnteredAt = 0;
+			lastInObstacle = false;
+			obstacleHit = false;
+
+			updateObstaclesDisplay();
+		};
+	})();
+
+	const obstacleEntered = (() => {
+		return (data) => {
+			obstacleHit = true;
+			inObstacle = true;
+			obstaclesHitCount++;
+			obstaclesEnteredAt = data.time;
+			obstaclesHitLastTime = data.time;
+
+			updateObstaclesDisplay();
+		};
+	})();
+
+	const obstacleExited = (() => {
+		return (data) => {
+			if (!inObstacle) {
+				return;
+			}
+
+			inObstacle = false;
+			obstaclesHitLastTime = data.time;
+
+			if (obstaclesHitLastTime != 0 && obstaclesEnteredAt != 0) {
+				const currentDuration = obstaclesHitLastTime - obstaclesEnteredAt;
+				obstaclesHitDurationInMilliSeconds += currentDuration;
+			}
+
+			obstaclesEnteredAt = 0;
+			obstaclesHitLastTime = 0;
+
+			updateObstaclesDisplay();
+		};
+	})();
 
 	const performance = (() => {
 		const cut_energy = 1;
@@ -149,10 +242,18 @@ const ui = (() => {
 				}
 			}
 
+
 			var accuracy = performance.currentMaxScore > 0
 				? performance.score / performance.currentMaxScore * 100.0
 				: 100.0;
 			latestAccuracy = accuracy;
+
+
+			if (inObstacle) {
+				obstaclesHitLastTime = data.time;
+				updateObstaclesDisplay();
+			}
+
 			updateBottachi();
 
 			if (html_id["percentage"]) {
@@ -225,7 +326,7 @@ const ui = (() => {
 					updateBottachi();
 
 					if (html_id["head_distance"]) {
-						headDistance.innerText = performance.HeadDistanceTravelled.Distance.toFixed(3) + "m";
+						headDistance.innerText = performance.HeadDistanceTravelled.Distance.toFixed(3) + "s";
 					}
 				}
 			}
@@ -251,6 +352,7 @@ const ui = (() => {
 			}
 		}
 	})();
+
 
 	const timer = (() => {
 		const radius = 30;
@@ -296,6 +398,11 @@ const ui = (() => {
 				display = progress;
 				if (html_id["song_time"]) song_time.innerText = format(progress);
 				if (typeof op_timer_update_sec !== "undefined") op_timer_update_sec(time, delta, progress, percentage);
+			}
+
+			if (inObstacle) {
+				obstaclesHitLastTime = Date.now();
+				updateObstaclesDisplay();
 			}
 		}
 
@@ -520,6 +627,10 @@ const ui = (() => {
 		other,
 		timer,
 		beatmap,
+
+		songStarted,
+		obstacleEntered,
+		obstacleExited,
 
 		testBottachi(
 			minAcc,

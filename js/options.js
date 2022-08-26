@@ -9,7 +9,10 @@ var default_bp_failure_threshold = 3.0;
 const check_id = ["overlay", "rank", "percentage", "combo", "score", "progress", "mod_nf", "raw_score",
 	"image", "title", "subtitle", "artist", "difficulty", "bpm", "njs", "bsr", "bsr_text",
 	"mapper", "mapper_header", "mapper_footer", "song_time", "song_length", "mod", "miss",
-	"pre_bsr", "pre_bsr_text", "njs_text", "energy", "energy_bar", "energy_group", "head_distance", "bottachi_point", "bottachi_fail"]
+	"pre_bsr", "pre_bsr_text", "njs_text", "energy", "energy_bar", "energy_group",
+	"head_distance", "bottachi_point", "bottachi_fail",
+	"obstacles_hit_count", "obstacles_hit_duration"];
+
 var html_id = {};
 for (var i = 0, len = check_id.length; i < len; ++i) {
 	if (document.getElementById(check_id[i]) === null) {
@@ -48,6 +51,18 @@ if (html_id["njs_text"]) var njs_text_org = document.getElementById("njs_text").
 					}
 					catch (error) {
 						console.error("Failed to change visibility of HDT parameters.", error)
+					}
+				}
+
+				if (modifier === "obstacles") {
+					enable_hdt = false;
+					try {
+						for (const element of document.getElementsByClassName("obstacles")) {
+							element.classList.remove("hidden");
+						}
+					}
+					catch (error) {
+						console.error("Failed to change visibility of obstacles hit parameters.", error)
 					}
 				}
 

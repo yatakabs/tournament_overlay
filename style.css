@@ -28,3 +28,11 @@
 #bottachi_factor::after {
     content: ")"
 }
+
+.obstacles.hit {
+    color: red;
+}
+
+.obstacles.nohit {
+    color: cyan;
+}
