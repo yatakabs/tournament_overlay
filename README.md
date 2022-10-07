@@ -13,7 +13,7 @@
 
 ## 使用方法
 
-[Beat Saber HTTP Status](https://github.com/opl-/beatsaber-http-status)または、[HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBS等の配信ツールにブラウザソースとして設定して使用可能です。
+[HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBS等の配信ツールにブラウザソースとして設定して使用可能です。
 
 ※以下の配信ツールで動作確認済みです
 - OBS Studio
