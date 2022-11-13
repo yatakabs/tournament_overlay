@@ -393,6 +393,21 @@ const ui = (() => {
 			if (typeof op_show !== "undefined") op_show();
 		},
 
+    start_hidden_set(){
+      start_hidden = true;
+      if (menu_shine) {
+        document.getElementById("scoreStats").setAttribute("style", "visibility: hidden");
+        menu_shine = false;
+      }
+    },
+
+    start_hidden_release() {
+      if (start_hidden) {
+        start_hidden = false;
+        document.getElementById("scoreStats").setAttribute("style", "visibility: visible");
+      }
+    },
+
 		performance,
 		timer,
 		beatmap
