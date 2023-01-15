@@ -1,5 +1,6 @@
 const query = new URLSearchParams(location.search);
 var bsr_display = false;
+var pause_display = false;
 var disp_hidden = true;
 var pre_bsr_data = null;
 var enable_hdt = true;
@@ -11,7 +12,7 @@ const check_id = ["overlay", "rank", "percentage", "combo", "score", "progress",
 	"mapper", "mapper_header", "mapper_footer", "song_time", "song_length", "mod", "miss",
 	"pre_bsr", "pre_bsr_text", "njs_text", "energy", "energy_bar", "energy_group",
 	"head_distance", "bottachi_point", "bottachi_fail",
-	"obstacles_hit_count", "obstacles_hit_duration"];
+	"obstacles_hit_count", "obstacles_hit_duration", "pause_status"];
 
 var html_id = {};
 for (var i = 0, len = check_id.length; i < len; ++i) {
@@ -27,7 +28,6 @@ if (html_id["bsr_text"]) var bsr_text_org = document.getElementById("bsr_text").
 if (html_id["pre_bsr_text"]) var pre_bsr_text_org = document.getElementById("pre_bsr_text").textContent;
 if (html_id["njs_text"]) var njs_text_org = document.getElementById("njs_text").textContent;
 
-
 (() => {
 	const handlers = {
 		modifiers(string) {
@@ -40,6 +40,10 @@ if (html_id["njs_text"]) var njs_text_org = document.getElementById("njs_text").
 
 				if (modifier === "bsr") {
 					bsr_display = true;
+				}
+
+				if(modifier === "pause"){
+					pause_display = true;
 				}
 
 				if (modifier === "nohdt") {

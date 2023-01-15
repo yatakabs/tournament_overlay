@@ -1,0 +1,37 @@
+
+.not_paused {
+    color: cyan;
+}
+
+.paused_safe {
+    color: white;
+}
+
+.paused_half {
+    color: yellow;
+}
+
+.paused_warn {
+    color: orange;
+}
+
+.is_paused {
+    color: yellow;
+    font-weight: bold;
+
+    animation: flash 1s linear infinite;
+}
+
+@keyframes flash {
+    0%,100%{
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.paused_over {
+    color: red !important;
+}

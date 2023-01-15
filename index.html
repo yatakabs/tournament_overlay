@@ -16,28 +16,25 @@
 <body style="zoom: 1.2;">
     <div class="scoreStats" id="scoreStats">
         <h2 id="score_submission_status" class="score_submission_status"></h2>
-
         <h2 class="time"><span id="song_time">Time</span>/<span id="song_length">Length</span></h2>
         <h2 class="score" id="raw_score">Score</h2>
         <h2 class="accuracy" id="percentage">Accuracy</h2>
         <h2 class="combo" id="combo">Combo</h2>
         <h2 class="miss" id="miss">Miss</h2>
         <h2 class="mod_nf" id="mod_nf"></h2>
-
         <h2 class="head_distance hdt_param">
             <span id="head_distance">HDT</span>
             <span id="bottachi_factor">BpFactor</span>
         </h2>
-
         <h2 class="bottachi_point hdt_param" id="bottachi_point_container">
             <span id="bottachi_point">BP</span>
             <span class="bottachi_fail hdt_param hidden" id="bottachi_fail">(failed)
         </h2>
-
+        <h2 id="pause_status" class="pause_status pause hidden nopause">Pause</h2>
         <h2 class="obstacles_hit_count obstacles hidden nohit" id="obstacles_hit_count">#WallHit</h2>
+        </h2>
         <h2 class="obstacles_hit_duration obstacles hidden" id="obstacles_hit_duration">HitDuration</h2>
     </div>
-
     <div class="mapInfo" id="mapInfo" style="display: none;">
         <p class="preBSR"><span id="pre_bsr_text">Pre BSR: </span><span id="pre_bsr">00000</span></p>
         <div>
@@ -53,20 +50,114 @@
         </div>
     </div>
     <script src="./js/options.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script src="./js/scoresubmission.js"></script>
     <script src="./js/ui.js"></script>
     <script src="./js/events.js"></script>
     <script src="./js/manager.js"></script>
+    <script>
+        const setupPause = () => {
+            console.info(`options initialized. pause_display: ${pause_display}`);
+            const pauseStatusElement = document.getElementById("pause_status");
+            pauseStatusElement.classList.remove("hidden");
 
+            let pauseStarted = 0;
+            let totalPauseDuration = 0;
+            let current = 0;
+            let intervalHandle = 0;
+            let isPaused = false;
 
+            const updatePauseStatus = () => {
+                console.info("updatePauseStatus");
+                const currentPauseDuration = isPaused
+                    ? totalPauseDuration + Date.now() - pauseStarted
+                    : totalPauseDuration;
+
+                const currentPauseDurationInSeconds = currentPauseDuration / 1000.0;
+
+                pauseStatusElement.innerText = `Pause: ${currentPauseDurationInSeconds.toFixed(3)}s`;
+                if (currentPauseDurationInSeconds == 0) {
+                    pauseStatusElement.classList.add("not_paused");
+                }
+                else {
+                    pauseStatusElement.classList.remove("not_paused");
+                }
+                if (isPaused) {
+                    pauseStatusElement.classList.add("is_paused");
+                }
+                else {
+                    pauseStatusElement.classList.remove("is_paused");
+                }
+                if (currentPauseDurationInSeconds > 0) {
+                    pauseStatusElement.classList.add("paused_safe");
+                }
+                else if (currentPauseDurationInSeconds > 10) {
+                    pauseStatusElement.classList.add("paused_half");
+                }
+                else if (currentPauseDurationInSeconds > 15) {
+                    pauseStatusElement.classList.add("paused_warn");
+                }
+                else if (currentPauseDurationInSeconds > 20) {
+                    pauseStatusElement.classList.add("paused_over");
+                }
+            };
+            window.op_pause = data => {
+                console.info("pause: op_pause");
+                isPaused = true;
+                pauseStarted = Date.now();
+                updatePauseStatus();
+                intervalHandle = window.setInterval(
+                    updatePauseStatus,
+                    1000.0 / 30.0,
+                )
+            };
+            window.op_menu = data => {
+                console.info("pause: op_menu");
+                if (isPaused) {
+                    isPaused = false;
+                    const currentDuration = Date.now() - pauseStarted;
+                    totalPauseDuration += currentDuration;
+                }
+                if (intervalHandle) {
+                    window.clearInterval(intervalHandle);
+                }
+                updatePauseStatus();
+            };
+            window.op_resume = data => {
+                console.info("pause: op_resume");
+                if (isPaused) {
+                    isPaused = false;
+                    const currentDuration = Date.now() - pauseStarted;
+                    totalPauseDuration += currentDuration;
+                }
+                if (intervalHandle) {
+                    window.clearInterval(intervalHandle);
+                }
+                updatePauseStatus();
+            };
+            window.op_songStart = data => {
+                console.info("pause: op_songStart");
+                if (intervalHandle) {
+                    window.clearInterval(intervalHandle);
+                }
+                totalPauseDuration = 0;
+                pauseStarted = 0;
+                pauseStatusElement.textContent = "NotPaused";
+                if (!pauseStatusElement.classList.contains("nopause")) {
+                    pauseStatusElement.classList.add("nopause");
+                }
+                updatePauseStatus();
+            };
+        };
+        if (pause_display) {
+            setupPause();
+        }
+    </script>
     <!-- <script>
         const random = true;
         const updateInterval = 1000;
         const shouldFailWhenRandom = undefined; // true, false, or undefined;
         const emulateSongHash = ""; // "3A3FAD9879FC6F8F61B682742D48871C90DCA773";
-
         if (random) {
             ui.testBottachi(
                 minAcc = 80,
@@ -77,7 +168,6 @@
             );
         }
         else {
-
             ui.testBottachi2(
                 initialAcc = 100.0,
                 initalDistance = 0.0,
