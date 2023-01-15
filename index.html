@@ -149,9 +149,14 @@
                 pauseStarted = 0;
                 pausedCount = 0;
                 pauseStatusElement.textContent = "NotPaused";
-                if (!pauseStatusElement.classList.contains("nopause")) {
-                    pauseStatusElement.classList.add("nopause");
-                }
+                
+                pauseStatusElement.classList.add("nopause");
+                pauseStatusElement.classList.remove("is_paused");
+                pauseStatusElement.classList.remove("paused_safe");
+                pauseStatusElement.classList.remove("paused_half");
+                pauseStatusElement.classList.remove("paused_warn");
+                pauseStatusElement.classList.remove("paused_over");
+
                 updatePauseStatus();
             };
         };
