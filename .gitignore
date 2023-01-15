@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/hdt-instruction/samples
+/hdt-instruction/B1_L5l.png
+/hdt-instruction/B1_L5.png
+/hdt-instruction/B1_L4.png
