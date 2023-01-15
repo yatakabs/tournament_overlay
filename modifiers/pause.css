@@ -6,11 +6,6 @@
 .paused_safe {
     color: white;
 }
-
-.paused_half {
-    color: yellow;
-}
-
 .paused_warn {
     color: orange;
 }
@@ -31,6 +26,12 @@
         opacity: 0;
     }
 }
+
+
+.paused_half {
+    color: yellow;
+}
+
 
 .paused_over {
     color: red !important;

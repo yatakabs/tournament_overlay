@@ -66,6 +66,7 @@
             let current = 0;
             let intervalHandle = 0;
             let isPaused = false;
+            let pausedCount = 0;
 
             const updatePauseStatus = () => {
                 console.info("updatePauseStatus");
@@ -75,7 +76,7 @@
 
                 const currentPauseDurationInSeconds = currentPauseDuration / 1000.0;
 
-                pauseStatusElement.innerText = `Pause: ${currentPauseDurationInSeconds.toFixed(3)}s`;
+                pauseStatusElement.innerText = `Pause: #${pausedCount} / ${currentPauseDurationInSeconds.toFixed(3)}s`;
                 if (currentPauseDurationInSeconds == 0) {
                     pauseStatusElement.classList.add("not_paused");
                 }
@@ -91,18 +92,22 @@
                 if (currentPauseDurationInSeconds > 0) {
                     pauseStatusElement.classList.add("paused_safe");
                 }
-                else if (currentPauseDurationInSeconds > 10) {
+
+                if (currentPauseDurationInSeconds > 10) {
                     pauseStatusElement.classList.add("paused_half");
                 }
-                else if (currentPauseDurationInSeconds > 15) {
+                
+                if (currentPauseDurationInSeconds > 15) {
                     pauseStatusElement.classList.add("paused_warn");
                 }
-                else if (currentPauseDurationInSeconds > 20) {
+                
+                if (currentPauseDurationInSeconds > 20) {
                     pauseStatusElement.classList.add("paused_over");
                 }
             };
             window.op_pause = data => {
                 console.info("pause: op_pause");
+                pausedCount++;
                 isPaused = true;
                 pauseStarted = Date.now();
                 updatePauseStatus();
@@ -142,6 +147,7 @@
                 }
                 totalPauseDuration = 0;
                 pauseStarted = 0;
+                pausedCount = 0;
                 pauseStatusElement.textContent = "NotPaused";
                 if (!pauseStatusElement.classList.contains("nopause")) {
                     pauseStatusElement.classList.add("nopause");
