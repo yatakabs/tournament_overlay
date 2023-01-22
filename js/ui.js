@@ -180,14 +180,23 @@ const ui = (() => {
 				return;
 			}
 
+			console.info("performance", performance);
+
 			if (html_id["score"]) score.innerText = format(performance.score);
 
-			if (performance.rawScore) {
+			if (typeof performance.rawScore !== "undefined") {
 				if (html_id["raw_score"]) raw_score.innerText = format(performance.rawScore);
 			}
 
-			if (html_id["combo"]) combo.innerText = performance.combo;
-			if (html_id["rank"]) rank.innerText = performance.rank;
+
+			if (typeof performance.combo !== "undefined" && html_id["combo"]) {
+				combo.innerText = performance.combo;
+			}
+
+			if (typeof performance.rank !== "undefined" && html_id["rank"]) {
+				rank.innerText = performance.rank;
+			}
+
 			if (full_combo) {
 				if (before_combo > performance.combo) full_combo = false;
 				switch (data.event) {
@@ -197,14 +206,18 @@ const ui = (() => {
 						full_combo = false;
 				}
 			}
-			before_combo = performance.combo;
-			if (html_id["miss"]) {
-				if (full_combo) {
-					miss.innerText = "FC";
-				} else {
-					miss.innerText = performance.missedNotes;
+
+			if (typeof performance.combo !== "undefined") {
+				before_combo = performance.combo;
+				if (html_id["miss"]) {
+					if (full_combo) {
+						miss.innerText = "FC";
+					} else {
+						miss.innerText = performance.missedNotes;
+					}
 				}
 			}
+
 			if (typeof performance.softFailed !== "undefined") {
 				if (performance.softFailed === true) {
 					now_energy = null;
