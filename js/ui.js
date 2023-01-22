@@ -175,10 +175,17 @@ const ui = (() => {
 		}
 		return (data) => {
 			var performance = data.status.performance;
+
+			if (typeof performance === "undefinfed") {
+				return;
+			}
+
 			if (html_id["score"]) score.innerText = format(performance.score);
+
 			if (performance.rawScore) {
 				if (html_id["raw_score"]) raw_score.innerText = format(performance.rawScore);
 			}
+
 			if (html_id["combo"]) combo.innerText = performance.combo;
 			if (html_id["rank"]) rank.innerText = performance.rank;
 			if (full_combo) {
