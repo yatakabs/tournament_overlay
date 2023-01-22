@@ -21,8 +21,8 @@ const ui = (() => {
 	const hashBottachiFactorMap = new Map([
 		// BG29th
 		["7cb719cbeb9bc3dc3cd60af44eff03fcc729bbd7", 30],
-		["d6c7ae29c840d83aa618f5b1574c1934e5df9c3f", 100],
-		["7cb719cbeb9bc3dc3cd60af44eff03fcc729bbd7", 20],
+		["73ff0f6549288c081863f29a6a0c0090d91d5295", 100],
+		["d6c7ae29c840d83aa618f5b1574c1934e5df9c3f", 20],
 		["64c1af18417fdaba97cea38e8547a1fdbaffbea4", 30],
 
 		// WR/LR
