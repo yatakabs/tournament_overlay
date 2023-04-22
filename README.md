@@ -37,6 +37,8 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 ## シーンコントロール使用時の注意点
 [obs-control](https://github.com/rynan4818/obs-control)等でOBSのシーンコントロールを使用している場合は、メニュー用シーンとゲームプレイ用シーンの両方に大会用オーバーレイの追加をお願いします。（ゲームプレイ用シーンのみだと、プレイ終了時に消えてしまうため）
 
+また、[TournamentAssistant](https://github.com/MatrikMoon/TournamentAssistant)を使用する場合は、プレイ開始時のシーン切替にトランジション動画を入れると、TournamentAssistantの機能（QRコード表示で配信の同期を取る）に影響が出るため、トランジションを外すなど対応をお願いします。詳しくは大会主催者に確認して下さい。
+
 ## 初めての方向けの詳しいインストール方法
 
 1. HttpSiraStatus のインストール
