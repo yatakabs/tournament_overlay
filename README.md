@@ -29,6 +29,9 @@
 ```
 https://rynan4818.github.io/tournament_overlay/
 ```
+
+※スケールを自動調整するため、OBSでオーバーレイのブラウザの幅を配信する解像度に合わせて下さい。
+
 ### 1080p(1920x1080)用 (1.5倍スケール固定)※従来の互換用
 ```
 https://rynan4818.github.io/tournament_overlay/?modifiers=scale
