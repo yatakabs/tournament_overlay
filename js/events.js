@@ -73,13 +73,11 @@ const events = {
   },
   
 	scoreChanged(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_scoreChanged !== "undefined") op_scoreChanged(data);
 	},
 
 	energyChanged(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_energyChanged !== "undefined") op_energyChanged(data);
 	},
@@ -108,6 +106,9 @@ const events = {
         var song_time = data.status.performance.currentSongTime;
         if (typeof song_time !== "undefined") {
           ui.timer.song_time_update(song_time);
+          if (song_time > 0) {
+            ui.start_hidden_release();
+          }
         }
       }
     }
