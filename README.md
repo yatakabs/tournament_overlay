@@ -31,6 +31,7 @@ https://rynan4818.github.io/tournament_overlay/
 ```
 
 ※スケールを自動調整するため、**OBSのブラウザソースの設定でオーバーレイのブラウザの幅を配信する解像度に合わせて下さい**。
+
 ![image](https://github.com/rynan4818/tournament_overlay/assets/14249877/013b9612-43e8-4f8d-8267-197ee16cd738)
 
 ### 1080p(1920x1080)用 (1.5倍スケール固定)※従来の互換用
@@ -42,9 +43,11 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 [obs-control](https://github.com/rynan4818/obs-control)等でOBSのシーンコントロールを使用している場合は、メニュー用シーンとゲームプレイ用シーンの両方に大会用オーバーレイの追加をお願いします。（ゲームプレイ用シーンのみだと、プレイ終了時に消えてしまうため）
 
 その際に、追加するブラウザソースは「**既存を追加**」で追加して下さい。（**新規作成で追加しない**)
+
 ![image](https://github.com/rynan4818/tournament_overlay/assets/14249877/102897af-62dd-4a7a-9ece-014f18656097)
 
 また、シーン切り替えで使用するBeatSaberのオーバーレイは全てで「表示されていないときにソースをシャットダウンする」と「シーンがアクティブになったときにブラウザの表示を更新する」のチェックを外して下さい。
+
 ![image](https://github.com/rynan4818/tournament_overlay/assets/14249877/3bd9ddb9-aadb-4548-b396-84b4188e50e1)
 
 また、[TournamentAssistant](https://github.com/MatrikMoon/TournamentAssistant)を使用する場合は、プレイ開始時のシーン切替にトランジション動画を入れると、TournamentAssistantの機能（QRコード表示で配信の同期を取る）に影響が出るため、トランジションを外すなど対応をお願いします。詳しくは大会主催者に確認して下さい。
