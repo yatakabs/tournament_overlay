@@ -73,11 +73,13 @@ const events = {
   },
   
 	scoreChanged(data) {
+    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_scoreChanged !== "undefined") op_scoreChanged(data);
 	},
 
 	energyChanged(data) {
+    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_energyChanged !== "undefined") op_energyChanged(data);
 	},
@@ -100,7 +102,6 @@ const events = {
   },
   
 	beatmapEvent(data) {
-    ui.start_hidden_release();
     if (typeof data.status !== "undefined") {
       if (typeof data.status.performance !== "undefined") {
         var song_time = data.status.performance.currentSongTime;
@@ -127,6 +128,7 @@ const events = {
 	},
 
 	resume(data) {
+    ui.start_hidden_release();
 		var ip = query.get("ip");
 		var diff_time = 0;
 		if (ip && ip != "localhost" && ip != "127.0.0.1") {
