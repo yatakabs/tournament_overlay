@@ -3,7 +3,7 @@
 
 ![preview](https://rynan4818.github.io/tournament_overlay1.png)
 
-## 主な特徴
+# 主な特徴
 - 曲時間、スコア、精度、コンボ数、ミス数のみのシンプルで見やすい表示です (曲名などの譜面情報は主催者側で用意)
 - プレイ終了後も非表示しないため、結果の確認が容易です
 - Fail後もスコアが50%にならず、Fail有無同士でもスコア比較が可能です
@@ -11,9 +11,11 @@
 
 ![preview](https://rynan4818.github.io/tournament_overlay2.png)
 
-## 使用方法
+# 使用方法
 
 [HttpSiraStatus](https://github.com/denpadokei/beatsaber-http-status)を使用して、下記URLをOBS等の配信ツールにブラウザソースとして設定して使用可能です。
+
+[**詳しいインストール方法**](https://github.com/rynan4818/tournament_overlay#%E5%88%9D%E3%82%81%E3%81%A6%E3%81%AE%E6%96%B9%E5%90%91%E3%81%91%E3%81%AE%E8%A9%B3%E3%81%97%E3%81%84%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%96%B9%E6%B3%95)
 
 ※以下の配信ツールで動作確認済みです
 - OBS Studio
