@@ -61,6 +61,8 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 1. HttpSiraStatus のインストール
 
     Beat Saberからオーバーレイにデータを送信するためにHttpSiraStatusをインストールしてください。
+   
+    **BeatSaber1.29.1環境の場合は、HttpSiraStatus-9.＊.＊バージョンを使用してください。**
 
    - [HttpSiraStatus](https://github.com/denpadokei/HttpSiraStatus/releases)
    
