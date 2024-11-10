@@ -62,6 +62,9 @@ if (html_id["njs_text"])      var njs_text_org = document.getElementById("njs_te
 	}
   
   if (auto_scale) {
-    document.documentElement.style.zoom = document.documentElement.offsetWidth / 1280;
+    var set_scale = document.documentElement.offsetWidth / 1280;
+    if (set_scale > 1) {
+      document.documentElement.style.zoom = set_scale;    
+    }
   }
 })();
