@@ -393,20 +393,36 @@ const ui = (() => {
 			if (typeof op_show !== "undefined") op_show();
 		},
 
-    start_hidden_set(){
-      start_hidden = true;
-      if (menu_shine) {
-        document.getElementById("scoreStats").setAttribute("style", "visibility: hidden");
-        menu_shine = false;
-      }
-    },
+		start_hidden_set(){
+			start_hidden1 = true;
+			start_hidden2 = true;
+			if (menu_shine) {
+				document.getElementById("TimingMark1").setAttribute("style", "visibility: visible");
+				document.getElementById("TimingMark2").setAttribute("style", "visibility: visible");
+				menu_shine = false;
+			}
+		},
 
-    start_hidden_release() {
-      if (start_hidden) {
-        start_hidden = false;
-        document.getElementById("scoreStats").setAttribute("style", "visibility: visible");
-      }
-    },
+		start_hidden_release1() {
+			if (start_hidden1) {
+				start_hidden1 = false;
+				document.getElementById("TimingMark1").setAttribute("style", "visibility: hidden");
+			}
+		},
+
+		start_hidden_release2() {
+			if (start_hidden2) {
+				start_hidden2 = false;
+				document.getElementById("TimingMark2").setAttribute("style", "visibility: hidden");
+			}
+		},
+
+		check_mark_hidden_set(){
+			document.getElementById("checkMark1").setAttribute("style", "visibility: hidden");
+			document.getElementById("checkMark2").setAttribute("style", "visibility: hidden");
+			document.getElementById("checkMark3").setAttribute("style", "visibility: hidden");
+			document.getElementById("checkMark4").setAttribute("style", "visibility: hidden");
+		},
 
 		performance,
 		timer,

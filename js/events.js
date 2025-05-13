@@ -1,12 +1,13 @@
 const events = {
 	hello(data) {
 		console.log("Connected to Beat Saber");
+		ui.check_mark_hidden_set();
 
-    menu_shine = true;
+		menu_shine = true;
 		if (data.status.beatmap && data.status.performance) {
 			ui.beatmap(data);
 			ui.performance(data);
-      ui.start_hidden_set();
+			ui.start_hidden_set();
 			ui.show();
 		}
 		if (typeof op_hello !== "undefined") op_hello(data);
@@ -15,78 +16,67 @@ const events = {
 	songStart(data) {
 		ui.beatmap(data);
 		ui.performance(data);
-    ui.start_hidden_set();
+		ui.start_hidden_set();
 		ui.show();
 		if (typeof op_songStart !== "undefined") op_songStart(data);
 	},
 
 	noteCut(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_noteCut !== "undefined") op_noteCut(data);
 	},
 
 	noteFullyCut(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_noteFullyCut !== "undefined") op_noteFullyCut(data);
 	},
 
 	obstacleEnter(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_obstacleEnter !== "undefined") op_obstacleEnter(data);
 	},
 
 	obstacleExit(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_obstacleExit !== "undefined") op_obstacleExit(data);
 	},
 
 	noteMissed(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_noteMissed !== "undefined") op_noteMissed(data);
 	},
 
 	bombCut(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_bombCut !== "undefined") op_bombCut(data);
 	},
 
 	finished(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_finished !== "undefined") op_finished(data);
 	},
 
 	failed(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_failed !== "undefined") op_failed(data);
 	},
 
-  softFailed(data) {
-    ui.performance(data);
-  },
-  
+	softFailed(data) {
+		ui.performance(data);
+	},
+
 	scoreChanged(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_scoreChanged !== "undefined") op_scoreChanged(data);
 	},
 
 	energyChanged(data) {
-    ui.start_hidden_release();
 		ui.performance(data);
 		if (typeof op_energyChanged !== "undefined") op_energyChanged(data);
 	},
 
-  noteSpawned(data) {
-    ui.start_hidden_release();
-  },
+	noteSpawned(data) {
+	},
 
   other(data) {
     if (typeof data.other !== "undefined") {
@@ -107,8 +97,9 @@ const events = {
         var song_time = data.status.performance.currentSongTime;
         if (typeof song_time !== "undefined") {
           ui.timer.song_time_update(song_time);
-          if (song_time > 0) {
-            ui.start_hidden_release();
+          if (song_time >= 1) {
+            ui.start_hidden_release1();
+            ui.start_hidden_release2();
           }
         }
       }
@@ -128,7 +119,7 @@ const events = {
 	},
 
 	resume(data) {
-    ui.start_hidden_release();
+		ui.start_hidden_release1();
 		var ip = query.get("ip");
 		var diff_time = 0;
 		if (ip && ip != "localhost" && ip != "127.0.0.1") {
@@ -140,8 +131,9 @@ const events = {
 	},
 
 	menu(data) {
-    menu_shine = true;
-    ui.start_hidden_release();
+		menu_shine = true;
+		ui.start_hidden_release1();
+		ui.start_hidden_release2();
 		ui.timer.stop();
 		if (disp_hidden) {
 			ui.hide();

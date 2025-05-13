@@ -3,7 +3,8 @@ var bsr_display = false;
 var disp_hidden = true;
 var pre_bsr_data = null;
 var auto_scale = true;
-var start_hidden = false;
+var start_hidden1 = false;
+var start_hidden2 = false;
 var menu_shine = true;
 const check_id = ["overlay","rank","percentage","combo","score","progress","mod_nf","raw_score",
                   "image","title","subtitle","artist","difficulty","bpm","njs","bsr","bsr_text",
