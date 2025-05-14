@@ -23,4 +23,4 @@ function connect() {
 	});
 }
 
-connect();
+setTimeout(connect, 1000);
