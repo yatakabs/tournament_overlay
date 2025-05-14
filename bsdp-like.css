@@ -62,59 +62,124 @@ h1 { line-height: 0; margin: 0; }
     background-color: rgb(255, 255, 255);
     width: 35px;
     height: 35px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 #TimingMark1
 {
-    top: 0.85%;
-    left: 15%;
+    top: 8px;
+    left: 150px;
 }
 
 #TimingMark2
 {
-    top: 0.85%;
-    right: 15%;
+    top: 8px;
+    right: 150px;
 }
 
 /*#region scoreStats*/
-.scoreStats2
+.scoreStats, .scoreStatsBottom
 {
     left: 50%;
     transform: translate(-50%);
     width: max-content;
-    min-width: 70%;
+    min-width: 700px;
     background-color: rgb(18, 18, 20) !important;
     height: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     border-radius: 0px 0px 10px 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.scoreStats, .scoreStatsBottom
+#song_time
 {
-    width: max-content;
-    min-width: 400px;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.scoreStats > h2, .scoreStatsBottom > h2
-{
-    padding-left: 10px;
-    padding-right: 10px;
+    min-width: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
     position: relative;
     top: 100%;
+    text-align: right;
+    transform: translate(0, -50%);
+}
+
+#time_separate
+{
+    min-width: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: center;
+    transform: translate(0, -50%);
+}
+
+#song_length
+{
+    min-width: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: left;
+    transform: translate(0, -50%);
+}
+
+#raw_score
+{
+    min-width: 120px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: right;
+    transform: translate(0, -50%);
+}
+
+#percentage
+{
+    min-width: 120px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: right;
+    transform: translate(0, -50%);
+}
+
+#combo
+{
+    min-width: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: right;
+    transform: translate(0, -50%);
+}
+
+#miss
+{
+    min-width: 80px;
+    padding-left: 0px;
+    padding-right: 0px;
+    position: relative;
+    top: 100%;
+    text-align: right;
     transform: translate(0, -50%);
 }
 
 #mod_nf
 {
+    min-width: 100px;
     padding-left: 0px;
     padding-right: 0px;
     color: yellow;
+    position: relative;
+    top: 100%;
+    text-align: right;
+    transform: translate(0, -50%);
 }
 /*#endregion*/
 
