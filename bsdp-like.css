@@ -1,262 +1,395 @@
-body
-{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-size: 1.05em;
-    color: white;
-    /* background: black; */
-    margin: 0;
-    overflow: hidden;
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.05em;
+  color: white;
+  /* background: black; */
+  margin: 0;
+  overflow: hidden;
 }
 
-body > * { position: absolute; }
+body>* {
+  position: absolute;
+}
 
-p { line-height: 0; margin: 0; }
-h2 { line-height: 0; margin: 0; }
-h1 { line-height: 0; margin: 0; }
+p {
+  line-height: 0;
+  margin: 0;
+}
 
-#splash
-{
-    position: absolute;
-    background: transparent;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    width: max-content;
-    display: none; /*REMOVE THIS WHEN THE EDITOR IS COMPLETE*/
+h2 {
+  line-height: 0;
+  margin: 0;
+}
+
+h1 {
+  line-height: 0;
+  margin: 0;
+}
+
+#splash {
+  position: absolute;
+  background: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  width: max-content;
+  display: none;
+  /*REMOVE THIS WHEN THE EDITOR IS COMPLETE*/
+}
+
+.checkMark {
+  background-color: rgb(255, 0, 0);
+  width: 20px;
+  height: 20px;
+}
+
+#checkMark1 {
+  top: 1px;
+  left: 1px;
+}
+
+#checkMark2 {
+  top: 1px;
+  right: 1px;
+}
+
+#checkMark3 {
+  bottom: 1px;
+  left: 1px;
+}
+
+#checkMark4 {
+  bottom: 1px;
+  right: 1px;
+}
+
+.TimingMark {
+  background-color: rgb(255, 255, 255);
+  width: 35px;
+  height: 35px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#TimingMark1 {
+  top: 8px;
+  left: 150px;
+}
+
+#TimingMark2 {
+  top: 8px;
+  right: 150px;
 }
 
 /*#region scoreStats*/
-.scoreStats, .scoreStatsBottom
-{
-    left: 50%;
-    transform: translate(-50%);
-    width: max-content;
-    min-width: 400px;
-    background-color: rgba(40, 40, 40, 0.7);
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    border-radius: 0px 0px 10px 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+.scoreStats,
+.scoreStatsBottom {
+  left: 50%;
+  transform: translate(-50%);
+  width: max-content;
+  min-width: 700px;
+  background-color: rgb(18, 18, 20) !important;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0px 0px 10px 10px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
-.scoreStats > h2, .scoreStatsBottom > h2
-{
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative;
-    top: 100%;
-    transform: translate(0, -50%);
+#song_time {
+  min-width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
 }
 
-#mod_nf
-{
-    padding-left: 0px;
-    padding-right: 0px;
-    color: yellow;
+#time_separate {
+  min-width: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: center;
+  transform: translate(0, -50%);
 }
+
+#song_length {
+  min-width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: left;
+  transform: translate(0, -50%);
+}
+
+#raw_score {
+  min-width: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
+  font-size: 1.3em;
+}
+
+#percentage {
+  min-width: 140px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
+  font-size: 1.8em;
+}
+
+#combo {
+  min-width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
+}
+
+#miss {
+  min-width: 80px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
+}
+
+#mod_nf {
+  min-width: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: yellow;
+  position: relative;
+  top: 100%;
+  text-align: right;
+  transform: translate(0, -50%);
+}
+
 /*#endregion*/
 
 /*#region mapInfo*/
-.mapInfo
-{
-    bottom: 10px;
-    left: 10px;
-    max-width: 75%;
+.mapInfo {
+  bottom: 10px;
+  left: 10px;
+  max-width: 75%;
 }
 
-.preBSR
-{
-    position: relative;
-    background-color: rgba(40, 40, 40, 0.7);
-    border-radius: 10px 10px 0px 0px;
-    padding: 17.5px 10px 12.5px 10px;
-    width: max-content;
+.preBSR {
+  position: relative;
+  background-color: rgba(40, 40, 40, 0.7);
+  border-radius: 10px 10px 0px 0px;
+  padding: 17.5px 10px 12.5px 10px;
+  width: max-content;
 }
 
-.mapInfo > div
-{
-    display: flex;
-    align-items: flex-end;
+.mapInfo>div {
+  display: flex;
+  align-items: flex-end;
 }
 
-.beatmapImageContainer
-{
-    position: relative;
-    background-color: rgba(40, 40, 40, 0.7);
-    width: 160px;
-    height: 160px;
-    border-radius: 0px 10px 0px 10px;
+.beatmapImageContainer {
+  position: relative;
+  background-color: rgba(40, 40, 40, 0.7);
+  width: 160px;
+  height: 160px;
+  border-radius: 0px 10px 0px 10px;
 }
 
-.beatmapImage
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+.beatmapImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
 }
 
-.beatmapInfo > p
-{
-    width: fit-content;
-    border-radius: 0px 10px 0px 0px;
-    padding: 17.5px 10px 12.5px 5px;
-    background-color: rgba(40, 40, 40, 0.7);
+.beatmapInfo>p {
+  width: fit-content;
+  border-radius: 0px 10px 0px 0px;
+  padding: 17.5px 10px 12.5px 5px;
+  background-color: rgba(40, 40, 40, 0.7);
 }
 
-.song
-{
-    width: fit-content;
-    border-radius: 0px 10px 10px 0px;
-    padding: 22.5px 10px 22.5px 5px;
-    background-color: rgba(40, 40, 40, 0.7);
+.song {
+  width: fit-content;
+  border-radius: 0px 10px 10px 0px;
+  padding: 22.5px 10px 22.5px 5px;
+  background-color: rgba(40, 40, 40, 0.7);
 }
+
 /*#endregion*/
 
 /*#region modifiersHealth*/
-.modifiersHealth, .modifiersHealthLeft
-{
-    right: 0px;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: max-content;
-    height: max-content;
+.modifiersHealth,
+.modifiersHealthLeft {
+  right: 0px;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: max-content;
+  height: max-content;
 }
 
-.modifiers
-{
-    background-color: rgba(40, 40, 40, 0.7);
-    width: 70px;
-    height: fit-content;
-    border-radius: 10px 0px 0px 10px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.modifiers {
+  background-color: rgba(40, 40, 40, 0.7);
+  width: 70px;
+  height: fit-content;
+  border-radius: 10px 0px 0px 10px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.modifiers > h2
-{
-    line-height: 45px;
-    color: rgba(80, 80, 80, 0.8);
+.modifiers>h2 {
+  line-height: 45px;
+  color: rgba(80, 80, 80, 0.8);
 }
 
-.healthContainer
-{
-    position: absolute;
-    top: 50%;
-    right: 70px;
-    transform: translate(0, -50%);
-    background-color: rgba(40, 40, 40, 0.7);
-    height: 80%;
-    width: 20px;
-    border-radius: 10px 0px 0px 10px;
+.healthContainer {
+  position: absolute;
+  top: 50%;
+  right: 70px;
+  transform: translate(0, -50%);
+  background-color: rgba(40, 40, 40, 0.7);
+  height: 80%;
+  width: 20px;
+  border-radius: 10px 0px 0px 10px;
 }
 
-.healthBackground
-{
-    position: absolute;
-    height: 90%;
-    width: 10px;
-    background-color: rgba(80, 80, 80, 0.8);
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
-    border-radius: 5px;
+.healthBackground {
+  position: absolute;
+  height: 90%;
+  width: 10px;
+  background-color: rgba(80, 80, 80, 0.8);
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  border-radius: 5px;
 }
 
-.health
-{
-    position: absolute;
-    background-color: white;
-    height: 50%;
-    width: 100%;
-    bottom: 0;
-    transition: all 100ms;
-    border-radius: 5px;
+.health {
+  position: absolute;
+  background-color: white;
+  height: 50%;
+  width: 100%;
+  bottom: 0;
+  transition: all 100ms;
+  border-radius: 5px;
 }
+
 /*#endregion*/
 
 /*#region Args*/
-.mapInfo.Right { right: 10px; left: unset; }
-.mapInfo.Right > p { margin-left: auto; }
-.mapInfo.Right > div > .beatmapInfo > p
-{
-    direction: rtl;
-    margin-left: auto;
-    padding: 17.5px 5px 12.5px 10px;
-}
-.mapInfo.Right > div > .beatmapInfo > .song
-{
-    direction: rtl;
-    margin-left: auto;
-    padding: 22.5px 5px 22.5px 10px;
+.mapInfo.Right {
+  right: 10px;
+  left: unset;
 }
 
-.modifiersHealthLeft { left: 0 !important; }
-.modifiersHealthLeft > .modifiers { border-radius: 0px 10px 10px 0px; }
-.modifiersHealthLeft > .healthContainer
-{
-    left: 70px !important;
-    border-radius: 0px 10px 10px 0px;
+.mapInfo.Right>p {
+  margin-left: auto;
 }
 
-.modifiersHealthLeft > .healthContainer > .healthBackground,
-.modifiersHealthLeft > .healthContainer > .healthBackground > .health
-{ left: 0 !important; }
+.mapInfo.Right>div>.beatmapInfo>p {
+  direction: rtl;
+  margin-left: auto;
+  padding: 17.5px 5px 12.5px 10px;
+}
+
+.mapInfo.Right>div>.beatmapInfo>.song {
+  direction: rtl;
+  margin-left: auto;
+  padding: 22.5px 5px 22.5px 10px;
+}
+
+.modifiersHealthLeft {
+  left: 0 !important;
+}
+
+.modifiersHealthLeft>.modifiers {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.modifiersHealthLeft>.healthContainer {
+  left: 70px !important;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.modifiersHealthLeft>.healthContainer>.healthBackground,
+.modifiersHealthLeft>.healthContainer>.healthBackground>.health {
+  left: 0 !important;
+}
+
 /*#endregion*/
 
 /*#region flipVert*/
-.scoreStatsBottom
-{
-    bottom: 0 !important;
-    border-radius: 10px 10px 0px 0px !important;
+.scoreStatsBottom {
+  bottom: 0 !important;
+  border-radius: 10px 10px 0px 0px !important;
 }
 
-.mapInfo.Top { top: 10px !important; }
-.mapInfo.Top > div > .beatmapInfo { margin-bottom: auto; }
-.mapInfo.Top > p
-{
-    border-radius: 0px 0px 10px 10px;
-    padding: 12.5px 10px 17.5px 5px;
+.mapInfo.Top {
+  top: 10px !important;
 }
+
+.mapInfo.Top>div>.beatmapInfo {
+  margin-bottom: auto;
+}
+
+.mapInfo.Top>p {
+  border-radius: 0px 0px 10px 10px;
+  padding: 12.5px 10px 17.5px 5px;
+}
+
 /*#endregion*/
 /*#endregion*/
 
 /* Animations and state */
 
 #overlay {
-	--show: cubic-bezier(0.19, 1, 0.22, 1) 300ms;
-	--hide: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
+  --show: cubic-bezier(0.19, 1, 0.22, 1) 300ms;
+  --hide: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
 }
 
-#overlay #scoreStats, #overlay #mapInfo > * {
-	transition:
-		opacity var(--show),
-		transform var(--show);
+#overlay #scoreStats,
+#overlay #mapInfo>* {
+  transition:
+    opacity var(--show),
+    transform var(--show);
 }
 
-#overlay.hidden #scoreStats, #overlay.hidden #mapInfo > * {
-	opacity: 0;
-	transform: translate(0, 15px);
-	transition:
-		opacity var(--hide),
-		transform var(--hide);
+#overlay.hidden #scoreStats,
+#overlay.hidden #mapInfo>* {
+  opacity: 0;
+  transform: translate(0, 15px);
+  transition:
+    opacity var(--hide),
+    transform var(--hide);
 }
 
-#overlay #mapInfo > *:nth-child(3) {
-	transition-delay: 100ms !important;
+#overlay #mapInfo>*:nth-child(3) {
+  transition-delay: 100ms !important;
 }
 
-#overlay #mapInfo > *:nth-child(2) {
-	transition-delay: 200ms !important;
+#overlay #mapInfo>*:nth-child(2) {
+  transition-delay: 200ms !important;
 }
 
-#overlay #mapInfo > *:nth-child(1) {
-	transition-delay: 300ms !important;
+#overlay #mapInfo>*:nth-child(1) {
+  transition-delay: 300ms !important;
 }
