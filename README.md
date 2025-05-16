@@ -89,11 +89,11 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
 1. OBSのソースにブラウザを追加します。
 
-   ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting1.png)
+    ![image](https://github.com/user-attachments/assets/bf702101-d85e-4891-9959-7095d766bc91)
 
 2. 新規作成を選択して、適当にソースの名前を設定して、OKを押します。
 
-   ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting2.png)
+   ![image](https://github.com/user-attachments/assets/c5b4d538-5d6a-4279-9f6a-4d165c036896)
 
 3. 大会用オーバーレイ表示用URL `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
 
@@ -101,11 +101,11 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    幅に合わせてオーバーレイの表示倍率が自動的に調整されます。
 
-   ![image](https://rynan4818.github.io/tournament_overlay3.png)
+   ![image](https://github.com/user-attachments/assets/dd63d4b5-b61e-4d72-a354-a8545339d1f8)
 
 4. オーバーレイのソースの順序を一番上にして、オーバーレイが常に表示されるようにします。
 
-    ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting8.png)
+    ![image](https://github.com/user-attachments/assets/28573408-efc1-4061-bdf5-8734a07ba65a)
 
 5. OBSの画面の四隅に赤色の■が見えるか確認します。（ビートセイバーが起動すると■が消えます）
 
