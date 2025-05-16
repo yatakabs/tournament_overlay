@@ -88,7 +88,7 @@ h1 {
   transform: translate(-50%);
   width: max-content;
   min-width: 700px;
-  background-color: rgb(18, 18, 20) !important;
+  background-color: rgb(18, 18, 20);
   height: 50px;
   display: flex;
   justify-content: center;
