@@ -74,6 +74,8 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
        ダウンロードするzipファイル名の`bs*.**.**`の部分が自分の使用しているBeatSaberの**バージョンと同じ**か、**小さくて一番新しい**ものを使用してください。
 
        **`bs*.**.**`のバージョンが使用するBeatSaberのバージョンよりも大きいと動作しませんので注意してください**
+
+       [HttpSiraStatus推奨バージョン](https://github.com/rynan4818/tournament_overlay/wiki/HttpSiraStatus%E4%BD%BF%E7%94%A8%E6%8E%A8%E5%A5%A8%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3-%5B2025%E5%B9%B45%E6%9C%8817%E6%97%A5%E6%99%82%E7%82%B9%5D)
    
    HttpSiraStatusを使用するには、ModAssistantにある**websocket-sharpのインストールが必須**です。
    
@@ -87,15 +89,15 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
    
    ※websocket-sharpはBeatSaberのバージョンに関係なく動作するので、HttpSiraStatusが対応していれば古いバージョンでも動作します。
 
-2. OBSのソースにブラウザを追加します。
+1. OBSのソースにブラウザを追加します。
 
     ![image](https://github.com/user-attachments/assets/bf702101-d85e-4891-9959-7095d766bc91)
 
-3. 新規作成を選択して、適当にソースの名前を設定して、OKを押します。
+2. 新規作成を選択して、適当にソースの名前を設定して、OKを押します。
 
    ![image](https://github.com/user-attachments/assets/c5b4d538-5d6a-4279-9f6a-4d165c036896)
 
-4. 大会用オーバーレイ表示用URL `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
+3. 大会用オーバーレイ表示用URL `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
 
    また、画面サイズに合わせて幅・高さを設定します。(1920x1080等)
 
@@ -103,11 +105,11 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    ![image](https://github.com/user-attachments/assets/dd63d4b5-b61e-4d72-a354-a8545339d1f8)
 
-5. オーバーレイのソースの順序を一番上にして、オーバーレイが常に表示されるようにします。
+4. オーバーレイのソースの順序を一番上にして、オーバーレイが常に表示されるようにします。
 
     ![image](https://github.com/user-attachments/assets/28573408-efc1-4061-bdf5-8734a07ba65a)
 
-6. OBSの画面の四隅に赤色の■が見えるか確認します。（ビートセイバーが起動すると■が消えます）
+5. OBSの画面の四隅に赤色の■が見えるか確認します。（ビートセイバーが起動すると■が消えます）
 
     ![image](https://github.com/user-attachments/assets/21a53d33-e448-495f-a1f6-930e4ae6bc81)
 
