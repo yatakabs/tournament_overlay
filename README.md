@@ -1,15 +1,18 @@
 # tournament_overlay
 ビーセイ大会用オーバーレイです。
 
-![preview](https://rynan4818.github.io/tournament_overlay1.png)
+![image](https://github.com/user-attachments/assets/e57d884f-9e67-48d7-b0f4-35f55c124971)
 
 # 主な特徴
-- 曲時間、スコア、精度、コンボ数、ミス数のみのシンプルで見やすい表示です (曲名などの譜面情報は主催者側で用意)
+- 曲時間、スコア、精度、コンボ数、ミス数、Fail表示のみのシンプルで見やすい表示です (曲名などの譜面情報は主催者側で用意)
 - プレイ終了後も非表示しないため、結果の確認が容易です
 - Fail後もスコアが50%にならず、Fail有無同士でもスコア比較が可能です
 - NFを付けずにプレイ開始した場合に **No NF!** と表示します。また、Failしたときに **Failed** と表示します
+- 両側に譜面スタート時のタイミング取得用の■マークが表示されます
 
-![preview](https://rynan4818.github.io/tournament_overlay2.png)
+    （左：スタート～ポーズ解除まで表示　　右：スタート～曲時間1秒まで表示）
+
+![image](https://github.com/user-attachments/assets/606d591a-ff6a-4775-95d1-f52793e22fe9)
 
 # 使用方法
 
@@ -34,7 +37,7 @@ https://rynan4818.github.io/tournament_overlay/
 
 ※スケールを自動調整するため、**OBSのブラウザソースの設定でオーバーレイのブラウザの幅を配信する解像度に合わせて下さい**。
 
-![image](https://github.com/rynan4818/tournament_overlay/assets/14249877/013b9612-43e8-4f8d-8267-197ee16cd738)
+![image](https://github.com/user-attachments/assets/2e457e5c-2ade-4b3e-89f5-0f47c642b15e)
 
 ### 1080p(1920x1080)用 (1.5倍スケール固定)※従来の互換用
 ```
@@ -61,7 +64,7 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 1. HttpSiraStatus のインストール
 
     Beat Saberからオーバーレイにデータを送信するためにHttpSiraStatusをインストールしてください。
-   
+
     **BeatSaber1.29.1環境の場合は、HttpSiraStatus-9.＊.＊バージョンを使用してください。**
 
    - [HttpSiraStatus](https://github.com/denpadokei/HttpSiraStatus/releases)
@@ -100,9 +103,16 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
 
    ![image](https://rynan4818.github.io/tournament_overlay3.png)
 
-4. オーバーレイのソースの順序をゲームのソースよりも優先度を上げて、オーバーレイがゲーム画面に重ねて表示されるようにします。
+4. オーバーレイのソースの順序を一番上にして、オーバーレイが常に表示されるようにします。
 
     ![image](https://rynan4818.github.io/beatsaber-overlay-obs-setting8.png)
+
+5. OBSの画面の四隅に赤色の■が見えるか確認します。（ビートセイバーが起動すると■が消えます）
+
+    ![image](https://github.com/user-attachments/assets/21a53d33-e448-495f-a1f6-930e4ae6bc81)
+
+    四隅に■が見えない場合は、表示が移動されているか解像度が合っていませんので見直すか、一旦削除してNo.1からやり直してください。
+   
 
 ## 動作しない場合
 もしも動作しない場合は、Beat Saber Overlay 改良版の[トラブルシューティング](https://github.com/rynan4818/beat-saber-overlay/blob/master/Troubleshooting.md)を参照してください。
