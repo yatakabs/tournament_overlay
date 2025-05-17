@@ -71,23 +71,15 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
    
        上記からダウンロードして解凍した`HttpSiraStatus.dll`をBeatSaberのインストールフォルダの`Plugins`フォルダにコピーします。
        
-       ダウンロードするzipファイル名の`bs*.**.**`の部分が自分の使用しているBeatSaberの**バージョンと同じ**か、**小さくて一番新しい**ものを使用してください。
+       ダウンロードするzipファイル名の`bs*.**.**`の部分が自分の使用しているBeatSaberのバージョンと**同じ**か、**小さくて一番新しい**ものを使用してください。
 
-       **`bs*.**.**`のバージョンが使用するBeatSaberのバージョンよりも大きいと動作しませんので注意してください**
+       `bs*.**.**`のバージョンが使用するBeatSaberのバージョンよりも**大きいと動作しません**ので注意してください
 
-       [HttpSiraStatus推奨バージョン](https://github.com/rynan4818/tournament_overlay/wiki/HttpSiraStatus%E4%BD%BF%E7%94%A8%E6%8E%A8%E5%A5%A8%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3-%5B2025%E5%B9%B45%E6%9C%8817%E6%97%A5%E6%99%82%E7%82%B9%5D)
+       **[HttpSiraStatus推奨バージョン](https://github.com/rynan4818/tournament_overlay/wiki/HttpSiraStatus%E4%BD%BF%E7%94%A8%E6%8E%A8%E5%A5%A8%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3-%5B2025%E5%B9%B45%E6%9C%8817%E6%97%A5%E6%99%82%E7%82%B9%5D)**
    
-   HttpSiraStatusを使用するには、ModAssistantにある**websocket-sharpのインストールが必須**です。
-   
-   入れ忘れトラブルが多いので注意して下さい。
+       HttpSiraStatusを使用する際に、以前は[websocket-sharp](https://beatmods.com/mods/155)のインストールも必須でしたが、上記の2025/5/17時点での推奨バージョンではインストール不要となっています。
 
-   ![image](https://user-images.githubusercontent.com/14249877/194671405-950cdf45-1e9c-4fb3-b198-15404a5145eb.png)
-   
-   ModAssistantに登録が無い場合は[BEATMODS](https://beatmods.com/#/mods)で、Game Versionを`Any`にして`websocket-sharp`を検索してダウンロードして下さい。
-
-   ![image](https://user-images.githubusercontent.com/14249877/194671490-6ef3e6e9-de3f-4ff7-8e36-40a22145e2e9.png)
-   
-   ※websocket-sharpはBeatSaberのバージョンに関係なく動作するので、HttpSiraStatusが対応していれば古いバージョンでも動作します。
+       もし動作しない場合は、上記推奨バージョンにアップデートしてください。
 
 1. OBSのソースにブラウザを追加します。
 
