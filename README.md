@@ -98,7 +98,9 @@ https://rynan4818.github.io/tournament_overlay/?modifiers=scale
    ![image](https://github.com/user-attachments/assets/c5b4d538-5d6a-4279-9f6a-4d165c036896)
 
 3. 大会用オーバーレイ表示用URL `https://rynan4818.github.io/tournament_overlay/` を、OBSのURL欄に貼り付けます。
-
+   ```
+   https://rynan4818.github.io/tournament_overlay/
+   ```
    また、画面サイズに合わせて幅・高さを設定します。(1920x1080等)
 
    幅に合わせてオーバーレイの表示倍率が自動的に調整されます。
