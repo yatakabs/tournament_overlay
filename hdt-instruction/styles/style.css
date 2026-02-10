@@ -39,6 +39,52 @@ proc-container expandable-image img {
   image-rendering: optimizeQuality;
   box-shadow: 0px 2px 5px #999;
 }
+.expandable-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.expandable-image-overlay.active {
+  background: rgba(0, 0, 0, 0.8);
+}
+.expandable-image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+.expandable-image-open-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.15s ease;
+  pointer-events: none;
+  z-index: 10001;
+}
+.expandable-image-overlay.active .expandable-image-open-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+.expandable-image-open-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
 proc-container proc-title {
   position: relative;
   display: block;
@@ -95,15 +141,61 @@ proc-container proc-steps proc-step proc-stepdesc {
 }
 proc-container proc-steps > proc-step {
   margin-top: 2em;
+  /* padding: 0.5em; */
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+proc-container proc-steps > proc-step:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.proc-step-link-btn {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.3em;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.75em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  line-height: 1;
+  color: #999;
+}
+proc-container proc-steps > proc-step:hover > proc-steptitle > .proc-step-link-btn {
+  opacity: 1;
+}
+proc-container > proc-title:hover > .proc-step-link-btn {
+  opacity: 1;
+}
+.proc-step-link-btn:hover {
+  color: #444;
+}
+proc-container proc-steps > proc-step:has(proc-substeps proc-step:hover) {
+  background-color: transparent;
+}
+proc-container proc-steps > proc-step:has(proc-selections proc-selection:hover) {
+  background-color: transparent;
+}
+proc-container proc-steps proc-substeps proc-step:has(proc-selections proc-selection:hover) {
+  background-color: transparent;
 }
 proc-container proc-steps proc-substeps {
   display: block;
   position: relative;
   counter-reset: substep;
+  margin-top: 0.5em;
 }
 proc-container proc-steps proc-substeps proc-step {
   display: block;
   counter-increment: substep;
+  margin-top: 0.3em;
+  padding: 0.3em 0.5em;
+  border-radius: 4px;
+  transition: background-color 0.15s ease;
+}
+proc-container proc-steps proc-substeps proc-step:hover {
+  background-color: rgba(0, 0, 0, 0.06);
 }
 proc-container proc-steps proc-substeps proc-step::before {
   font-weight: bold;
@@ -148,6 +240,11 @@ proc-selections proc-selection {
   display: block;
   margin-left: 3px;
   border-left: 4px solid blue;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.15s ease;
+}
+proc-selections proc-selection:hover {
+  background-color: rgba(0, 0, 255, 0.03);
 }
 proc-selections proc-selection :first-child {
   margin-top: 1ex;
