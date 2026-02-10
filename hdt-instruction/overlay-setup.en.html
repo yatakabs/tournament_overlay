@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tournament Overlay Setup (HttpSiraStatus)</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+    <article>
+        <h1>Tournament Overlay Setup Guide</h1>
+
+        <section id="procedures">
+            <proc-group>
+                <proc-group-title>Install Required Mods &amp; Verify the Overlay</proc-group-title>
+
+                <section>
+                    <h2>Table of Contents</h2>
+                    <div>
+                        <ol>
+                            <li><a href="#install-mods">Install Mods</a></li>
+                            <li><a href="#verify">Verify the Overlay</a></li>
+                        </ol>
+                    </div>
+                </section>
+
+                <proc-container id="install-mods">
+                    <proc-title>Install Mods</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>Install <code>websocket-sharp</code></proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-selections>
+                                    <proc-selections-header>Install using your mod manager</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title><code>Mod Assistant</code></proc-selection-title>
+                                        <proc-selection-details>
+                                            <expandable-image
+                                                src="images/websocket-sharp-modassistant-installation.png">
+                                            </expandable-image>
+                                            <proc-substeps>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Open <code>Mod Assistant</code>, then open the <code>Mods</code> tab
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Under <code>Libraries</code>, check <code>websocket-sharp</code>
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Click <code>Install or Update</code> (bottom-right)
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                            </proc-substeps>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title><code>BSManager</code></proc-selection-title>
+                                        <proc-selection-details>
+                                            <expandable-image
+                                                src="images/websocket-sharp-bsmanager-installation.png"></expandable-image>
+                                            <proc-substeps>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Open <code>BSManager</code> and select the Beat Saber version you will use
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Open the <code>Mods</code> tab and search for <code>websocket-sharp</code>
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        Install <code>websocket-sharp</code>
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                            </proc-substeps>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Install <code>HttpSiraStatus</code></proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>Download the correct release</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <proc-selections>
+                                                <proc-selections-header>Select the release that matches your Beat Saber version</proc-selections-header>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.42.0</code> → <strong>Not available (as of now)</strong></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        There is currently no HttpSiraStatus release specifically for Beat Saber <code>1.42.0</code>.
+                                                        <br />
+                                                        Check the latest releases here:
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases">GitHub releases page</a>
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.40.8</code> → HttpSiraStatus <code>14.1.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        Download the zip from
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/14.1.0">GitHub</a>.
+                                                        <br />
+                                                        (<code>HttpSiraStatus-14.1.0-bs1.40.0-795ace9.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.39.1</code> → HttpSiraStatus <code>13.0.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        Download the zip from
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/13.0.0">GitHub</a>.
+                                                        <br />
+                                                        (<code>HttpSiraStatus-13.0.0-bs1.39.0-d31233e.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.37.1</code> → HttpSiraStatus <code>12.0.2</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        Download the zip from
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/12.0.2">GitHub</a>.
+                                                        <br />
+                                                        (<code>HttpSiraStatus-12.0.2-bs1.37.1-27f5e15.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.29.1</code> → HttpSiraStatus <code>9.1.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        Download the zip from
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/9.1.0">GitHub</a>.
+                                                        <br />
+                                                        (<code>HttpSiraStatus-9.1.0-bs1.29.0-626dccb.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                            </proc-selections>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>Extract the zip file</proc-steptitle>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>Copy <code>HttpSiraStatus.dll</code> to your <code>Plugins</code> folder</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                After extracting, copy <code>Plugins\HttpSiraStatus.dll</code> into the <code>Plugins</code> folder
+                                                inside your Beat Saber installation directory.
+                                            </p>
+                                            <example-container>
+                                                Example (Steam default path):
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                After copying, confirm the file exists here:
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HttpSiraStatus.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Remove conflicting plugins (if present)</proc-steptitle>
+                            <proc-stepdesc>
+                                To avoid mod conflicts, delete the following files if they exist in your Beat Saber <code>Plugins</code> folder:
+                                <ul>
+                                    <li><code>BeatSaberHttpStatus.dll</code></li>
+                                    <li><code>HttpStatus.dll</code></li>
+                                </ul>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="verify">
+                    <proc-title>Verify the Overlay</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>Start Beat Saber</proc-steptitle>
+                            <proc-stepdesc>
+                                <p>
+                                    You can verify the overlay in desktop mode (without a VR headset).
+                                </p>
+
+                                <p>
+                                    To start in desktop mode, use one of the options below.
+                                </p>
+
+                                <proc-selections>
+                                    <proc-selections-header>Desktop-mode launch options</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title>Steam</proc-selection-title>
+                                        <proc-selection-details>
+                                            In Steam, right-click Beat Saber → <code>Properties</code> → <code>Launch Options</code>, then add <code>fpfc</code>.
+                                            <expandable-image
+                                                src="images/steam-fpfc-launch-option.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title>BSManager</proc-selection-title>
+                                        <proc-selection-details>
+                                            In BSManager, open the target version's <code>Launch</code> tab → <code>Launch Options</code>, then enable <code>FPFC Mode</code>.
+                                            <expandable-image
+                                                src="images/bsmanager-fpfc-launch-option.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Open the overlay page in a web browser</proc-steptitle>
+                            <proc-stepdesc>
+                                <p>
+                                    Open the following URL:
+                                    <br />
+                                    <a href="https://garai.dogesato.com/public/tournament/index.html"><code>https://garai.dogesato.com/public/tournament/index.html</code></a>
+                                </p>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Confirm the page is working</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-selections>
+                                    <proc-selections-header>What do you see?</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title>Success</proc-selection-title>
+                                        <proc-selection-details>
+                                            If you see a screen like this, the mods are installed correctly.
+                                            Next, do the in-game overlay check below.
+                                            <expandable-image src="images/overlay-verify-success.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title>Failure</proc-selection-title>
+                                        <proc-selection-details>
+                                            If you see a screen like this, the overlay is not receiving data.
+                                            Re-check the steps above.
+                                            <br />
+                                            If retrying does not help, please contact the tournament staff.
+                                            <expandable-image src="images/overlay-verify-failure.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+
+                        <proc-step>
+                            <proc-steptitle>Confirm live updates in-game</proc-steptitle>
+                            <proc-stepdesc>
+                                Play any song and check whether the score/combo updates on the overlay.
+                                <br />
+                                If you can see score/combo updating like this, the setup is complete.
+                                <expandable-image src="images/overlay-in-game-example.png"></expandable-image>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+            </proc-group>
+        </section>
+    </article>
+
+    <script src="scripts/proc-elements.js"></script>
+</body>
+
+</html>
