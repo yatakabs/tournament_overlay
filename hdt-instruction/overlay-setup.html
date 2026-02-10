@@ -22,6 +22,7 @@
                             <li><a href="#install-websocket-sharp">websocket-sharp のインストール</a></li>
                             <li><a href="#install-httpsirastatus">HttpSiraStatus のインストール</a></li>
                             <li><a href="#cleanup">不要なファイルの削除</a></li>
+                            <li><a href="#verify">オーバーレイの動作確認</a></li>
                         </ol>
                     </div>
                 </section>
@@ -99,48 +100,60 @@
                                         <proc-steptitle>HttpSiraStatus のダウンロード</proc-steptitle>
                                         <proc-stepdesc>
                                             <proc-selections>
-                                                <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                                <proc-selections-header>Beat Saber
+                                                    のバージョンに応じてダウンロード</proc-selections-header>
                                                 <proc-selection>
-                                                    <proc-selection-title>Beat Saber <code>1.42.0</code> の場合 → <strong>未確認</strong></proc-selection-title>
+                                                    <proc-selection-title>Beat Saber <code>1.42.0</code> の場合 →
+                                                        <strong>未確認</strong></proc-selection-title>
                                                     <proc-selection-details>
-                                                        現時点では Beat Saber <code>1.42.0</code> のための HttpSiraStatus のリリースはありません。
+                                                        現時点では Beat Saber <code>1.42.0</code> のための HttpSiraStatus
+                                                        のリリースはありません。
                                                         <br />
                                                         対応状況は
-                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases">Github リリースページ</a>
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases">Github
+                                                            リリースページ</a>
                                                         の最新版を利用するなどして確認してください。
                                                     </proc-selection-details>
                                                 </proc-selection>
                                                 <proc-selection>
-                                                    <proc-selection-title>Beat Saber <code>1.40.8</code> の場合 → HttpSiraStatus <code>14.1.0</code></proc-selection-title>
+                                                    <proc-selection-title>Beat Saber <code>1.40.8</code> の場合 →
+                                                        HttpSiraStatus <code>14.1.0</code></proc-selection-title>
                                                     <proc-selection-details>
-                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/14.1.0">Github</a>
+                                                        <a
+                                                            href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/14.1.0">Github</a>
                                                         から zip ファイルをダウンロード。
                                                         <br />
                                                         (<code>HttpSiraStatus-14.1.0-bs1.40.0-795ace9.zip</code>)
                                                     </proc-selection-details>
                                                 </proc-selection>
                                                 <proc-selection>
-                                                    <proc-selection-title>Beat Saber <code>1.39.1</code> の場合 → HttpSiraStatus <code>13.0.0</code></proc-selection-title>
+                                                    <proc-selection-title>Beat Saber <code>1.39.1</code> の場合 →
+                                                        HttpSiraStatus <code>13.0.0</code></proc-selection-title>
                                                     <proc-selection-details>
-                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/13.0.0">Github</a>
+                                                        <a
+                                                            href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/13.0.0">Github</a>
                                                         から zip ファイルをダウンロード。
                                                         <br />
                                                         (<code>HttpSiraStatus-13.0.0-bs1.39.0-d31233e.zip</code>)
                                                     </proc-selection-details>
                                                 </proc-selection>
                                                 <proc-selection>
-                                                    <proc-selection-title>Beat Saber <code>1.37.1</code> の場合 → HttpSiraStatus <code>12.0.2</code></proc-selection-title>
+                                                    <proc-selection-title>Beat Saber <code>1.37.1</code> の場合 →
+                                                        HttpSiraStatus <code>12.0.2</code></proc-selection-title>
                                                     <proc-selection-details>
-                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/12.0.2">Github</a>
+                                                        <a
+                                                            href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/12.0.2">Github</a>
                                                         から zip ファイルをダウンロード。
                                                         <br />
                                                         (<code>HttpSiraStatus-12.0.2-bs1.37.1-27f5e15.zip</code>)
                                                     </proc-selection-details>
                                                 </proc-selection>
                                                 <proc-selection>
-                                                    <proc-selection-title>Beat Saber <code>1.29.1</code> の場合 → HttpSiraStatus <code>9.1.0</code></proc-selection-title>
+                                                    <proc-selection-title>Beat Saber <code>1.29.1</code> の場合 →
+                                                        HttpSiraStatus <code>9.1.0</code></proc-selection-title>
                                                     <proc-selection-details>
-                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/9.1.0">Github</a>
+                                                        <a
+                                                            href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/9.1.0">Github</a>
                                                         から zip ファイルをダウンロード。
                                                         <br />
                                                         (<code>HttpSiraStatus-9.1.0-bs1.29.0-626dccb.zip</code>)
@@ -188,6 +201,90 @@
                                     <li><code>BeatSaberHttpStatus.dll</code></li>
                                     <li><code>HttpStatus.dll</code></li>
                                 </ul>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="verify">
+                    <proc-title>オーバーレイの動作確認</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>Beat Saber を起動する</proc-steptitle>
+                            <proc-stepdesc>
+                                <p>VR HMD を使わずにデスクトップで起動しても、オーバーレイの表示確認は可能です。</p>
+
+
+                                <p>デスクトップで起動する場合は、起動方法に応じて下記のいずれかの方法で起動してください。</p>
+
+                                <proc-selections>
+                                    <proc-selections-header>デスクトップでの起動方法</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title>Steam から起動する場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            Steam ライブラリの Beat Saber を右クリックし、<code>プロパティ</code>を開き、<code>起動オプション</code> に
+                                            <code>fpfc</code> を追加して起動する。
+                                            
+                                            <expandable-image
+                                                src="images/steam-fpfc-launch-option.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>]
+                                    <proc-selection>
+                                        <proc-selection-title>BSManager から起動する場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            BSManager の対象バージョンの <code>Launch</code> タブから <code>Launch Options</code>
+                                            を開き、<code>FPFC Mode</code> にチェックを入れて起動する。
+                                            <expandable-image
+                                                src="images/bsmanager-fpfc-launch-option.png"></expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>Web ブラウザでオーバーレイの URL を開く</proc-steptitle>
+                            <proc-stepdesc>
+                                <p>
+                                    下記の URL を Web ブラウザで開く。
+                                    <br />
+                                    <a
+                                        href="https://garai.dogesato.com/public/tournament/index.html"><code>https://garai.dogesato.com/public/tournament/index.html</code></a>
+                                </p>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>表示を確認する</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-selections>
+                                    <proc-selections-header>表示内容に応じて確認</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title>成功の場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            下記のような表示であれば、Mod の導入は正しく完了しています。
+                                            この後のオーバーレイ動作確認へ進んでください。
+                                            <expandable-image src="images/overlay-verify-success.png">
+                                            </expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title>失敗の場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            下記のような表示の場合、Mod の導入が正しく行われていません。上記の手順を見直してください。
+                                            <br />
+                                            もしやり直しても解決しない場合は、]大会運営者などに相談してください。
+                                            <expandable-image src="images/overlay-verify-failure.png">
+                                            </expandable-image>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+                        <proc-step>
+                            <proc-steptitle>オーバーレイの動作確認</proc-steptitle>
+                            <proc-stepdesc>
+                                試しに任意の譜面をプレイし、オーバーレイにスコアやコンボが反映されるか確認してください。
+                                この画像のように、オーバーレイにスコアやコンボが表示されていれば、セットアップは完了です。
+                                <expandable-image src="images/overlay-in-game-example.png">
                             </proc-stepdesc>
                         </proc-step>
                     </proc-steps>

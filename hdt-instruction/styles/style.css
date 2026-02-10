@@ -29,6 +29,10 @@ proc-group proc-group-title::after {
 proc-container {
   position: relative;
 }
+proc-container expandable-image {
+  display: block;
+  text-align: left;
+}
 proc-container expandable-image img {
   max-width: 100%;
   max-height: 16em;
