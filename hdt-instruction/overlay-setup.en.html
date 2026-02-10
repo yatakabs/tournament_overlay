@@ -11,6 +11,11 @@
     <article>
         <h1>Tournament Overlay Setup Guide</h1>
 
+        <nav class="doc-lang" aria-label="Language">
+            <a href="overlay-setup.html" hreflang="ja" rel="alternate">日本語</a> |
+            <strong>English</strong>
+        </nav>
+
         <section id="procedures">
             <proc-group>
                 <proc-group-title>Install Required Mods &amp; Verify the Overlay</proc-group-title>
@@ -183,6 +188,13 @@
 
                 <proc-container id="verify">
                     <proc-title>Verify the Overlay</proc-title>
+                    <warning-container>
+                        Prerequisite: Install <code>MultiplayerPlus</code>.
+                        <br />
+                        If <code>MultiplayerPlus</code> is not installed, the overlay may show a failure screen.
+                        In that case, treat the mod setup as successful as long as you do <strong>not</strong> see:
+                        <code>HttpSiraStatus を検出できません</code>
+                    </warning-container>
                     <proc-steps>
                         <proc-step>
                             <proc-steptitle>Start Beat Saber</proc-steptitle>
@@ -249,6 +261,13 @@
                                             <br />
                                             If retrying does not help, please contact the tournament staff.
                                             <expandable-image src="images/overlay-verify-failure.png"></expandable-image>
+                                            <info-container>
+                                                The error message on screen tells you what is missing:
+                                                <ul>
+                                                    <li><code>HttpSiraStatus を検出できません</code> — <code>HttpSiraStatus</code> is not installed or not loaded. Go back to Step 1-2 and re-install it.</li>
+                                                    <li><code>MultiplayerPlus を検出できません</code> — <code>MultiplayerPlus</code> is not installed. This mod is required for the tournament overlay to work. Install it before continuing.</li>
+                                                </ul>
+                                            </info-container>
                                         </proc-selection-details>
                                     </proc-selection>
                                 </proc-selections>

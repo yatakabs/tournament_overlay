@@ -59,19 +59,27 @@ class ProcedureStep extends HTMLLIElement {
     }
 }
 
+// Localisation helper
+const _isEn = document.documentElement.lang === "en";
+const _i18n = {
+    linkTitle:  _isEn ? "Copy link to this step" : "\u3053\u306e\u30b9\u30c6\u30c3\u30d7\u3078\u306e\u30ea\u30f3\u30af\u3092\u30b3\u30d4\u30fc",
+    copied:     _isEn ? "\u2713 Copied" : "\u2713 \u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f",
+    openImage:  _isEn ? "\u21F1 Open image" : "\u21F1 \u753b\u50CF\u3092\u958b\u304F",
+};
+
 // Add link copy buttons after DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     // Helper to create a link copy button for a given element
     function createLinkBtn(targetEl) {
         const btn = document.createElement("button");
         btn.className = "proc-step-link-btn";
-        btn.title = "\u3053\u306e\u30b9\u30c6\u30c3\u30d7\u3078\u306e\u30ea\u30f3\u30af\u3092\u30b3\u30d4\u30fc";
+        btn.title = _i18n.linkTitle;
         btn.textContent = "\uD83D\uDD17";
         btn.addEventListener("click", (e) => {
             e.stopPropagation();
             const url = location.origin + location.pathname + "#" + targetEl.id;
             navigator.clipboard.writeText(url).then(() => {
-                btn.textContent = "\u2713 \u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f";
+                btn.textContent = _i18n.copied;
                 setTimeout(() => { btn.textContent = "\uD83D\uDD17"; }, 1500);
             });
         });
@@ -184,7 +192,7 @@ class ExpandableImage extends HTMLElement {
         openBtn.href = imageUrl;
         openBtn.target = "_blank";
         openBtn.className = "expandable-image-open-btn";
-        openBtn.textContent = "\u21F1 画像を開く";
+        openBtn.textContent = _i18n.openImage;
         openBtn.addEventListener("click", (e) => e.stopPropagation());
         overlay.appendChild(openBtn);
 

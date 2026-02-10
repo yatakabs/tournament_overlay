@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
     <meta charset="utf-8" />
-    <title>HttpHDTStatus 関連セットアップ</title>
+    <title>対戦用オーバーレイセットアップ</title>
     <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
     <article>
         <h1>対戦用オーバーレイセットアップガイド</h1>
+
+        <nav class="doc-lang" aria-label="Language">
+            <strong>日本語</strong> |
+            <a href="overlay-setup.en.html" hreflang="en" rel="alternate">English</a>
+        </nav>
 
         <section id="procedures">
             <proc-group>
@@ -194,6 +199,12 @@
 
                 <proc-container id="verify">
                     <proc-title>オーバーレイの動作確認</proc-title>
+                    <warning-container>
+                        この手順を行うには <code>MultiplayerPlus</code> がインストールされている必要があります。
+                        <br />
+                        <code>MultiplayerPlus</code> が未導入の場合、オーバーレイは失敗表示になりますが、
+                        「HttpSiraStatus を検出できません」というメッセージが表示されなければ、Mod の導入自体は成功しています。
+                    </warning-container>
                     <proc-steps>
                         <proc-step>
                             <proc-steptitle>Beat Saber を起動する</proc-steptitle>
