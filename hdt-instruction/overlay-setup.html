@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>HttpHDTStatus 関連セットアップ</title>
+    <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+    <article>
+        <h1>対戦用オーバーレイセットアップガイド</h1>
+
+        <section id="procedures">
+            <proc-group>
+                <proc-group-title>関連 Mod インストール &amp; オーバーレイ設定</proc-group-title>
+
+                <section>
+                    <h2>目次</h2>
+                    <div>
+                        <ol>
+                            <li><a href="#install-websocket-sharp">websocket-sharp のインストール</a></li>
+                            <li><a href="#install-httpsirastatus">HttpSiraStatus のインストール</a></li>
+                            <li><a href="#cleanup">不要なファイルの削除</a></li>
+                        </ol>
+                    </div>
+                </section>
+
+                <proc-container id="install-websocket-sharp">
+                    <proc-title>websocket-sharp のインストール</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>websocket-sharp をインストールする</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-selections>
+                                    <proc-selections-header>使用する Mod マネージャーに応じてインストール</proc-selections-header>
+                                    <proc-selection>
+                                        <proc-selection-title><code>Mod Assistant</code> の場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            <expandable-image
+                                                src="images/websocket-sharp-modassistant-installation.png">
+                                            </expandable-image>
+                                            <proc-substeps>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        <code>Mod Assistant</code> を起動し、<code>Mod</code> タブを開く
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        <code>Libraries</code> グループにある <code>websocket-sharp</code>
+                                                        を選択する
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>右下の <code>Install or Update</code>
+                                                        ボタンを押して、インストールする</proc-steptitle>
+                                                </proc-step>
+                                            </proc-substeps>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                    <proc-selection>
+                                        <proc-selection-title><code>BSManager</code> の場合</proc-selection-title>
+                                        <proc-selection-details>
+                                            <expandable-image
+                                                src="images/websocket-sharp-bsmanager-installation.png"></expandable-image>
+                                            <proc-substeps>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        <code>BSManager</code> を起動し、対象のバージョンを選択する
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle>
+                                                        <code>Mods</code> タブを開き、<code>websocket-sharp</code> を検索する
+                                                    </proc-steptitle>
+                                                </proc-step>
+                                                <proc-step>
+                                                    <proc-steptitle><code>websocket-sharp</code>
+                                                        をインストールする</proc-steptitle>
+                                                </proc-step>
+                                            </proc-substeps>
+                                        </proc-selection-details>
+                                    </proc-selection>
+                                </proc-selections>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="install-httpsirastatus">
+                    <proc-title>HttpSiraStatus のインストール</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>HttpSiraStatus のダウンロードと配置</proc-steptitle>
+                            <proc-stepdesc>
+                                <proc-substeps>
+                                    <proc-step>
+                                        <proc-steptitle>HttpSiraStatus のダウンロード</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <proc-selections>
+                                                <proc-selections-header>Beat Saber のバージョンに応じてダウンロード</proc-selections-header>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.42.0</code> の場合 → <strong>未確認</strong></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        現時点では Beat Saber <code>1.42.0</code> のための HttpSiraStatus のリリースはありません。
+                                                        <br />
+                                                        対応状況は
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases">Github リリースページ</a>
+                                                        の最新版を利用するなどして確認してください。
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.40.8</code> の場合 → HttpSiraStatus <code>14.1.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/14.1.0">Github</a>
+                                                        から zip ファイルをダウンロード。
+                                                        <br />
+                                                        (<code>HttpSiraStatus-14.1.0-bs1.40.0-795ace9.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.39.1</code> の場合 → HttpSiraStatus <code>13.0.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/13.0.0">Github</a>
+                                                        から zip ファイルをダウンロード。
+                                                        <br />
+                                                        (<code>HttpSiraStatus-13.0.0-bs1.39.0-d31233e.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.37.1</code> の場合 → HttpSiraStatus <code>12.0.2</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/12.0.2">Github</a>
+                                                        から zip ファイルをダウンロード。
+                                                        <br />
+                                                        (<code>HttpSiraStatus-12.0.2-bs1.37.1-27f5e15.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                                <proc-selection>
+                                                    <proc-selection-title>Beat Saber <code>1.29.1</code> の場合 → HttpSiraStatus <code>9.1.0</code></proc-selection-title>
+                                                    <proc-selection-details>
+                                                        <a href="https://github.com/denpadokei/HttpSiraStatus/releases/tag/9.1.0">Github</a>
+                                                        から zip ファイルをダウンロード。
+                                                        <br />
+                                                        (<code>HttpSiraStatus-9.1.0-bs1.29.0-626dccb.zip</code>)
+                                                    </proc-selection-details>
+                                                </proc-selection>
+                                            </proc-selections>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>ダウンロードした zip ファイルを解凍</proc-steptitle>
+                                    </proc-step>
+                                    <proc-step>
+                                        <proc-steptitle>解凍したファイルを Plugins フォルダへ移動</proc-steptitle>
+                                        <proc-stepdesc>
+                                            <p>
+                                                解凍して現れた
+                                                <code>Plugins\HttpSiraStatus.dll</code>
+                                                を Beat Saber のインストールディレクトリにある <code>Plugins</code> フォルダにコピー
+                                            </p>
+                                            <example-container>
+                                                Beat Saber のインストールパスが下記の場合
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber</code>
+                                                <br />
+                                                コピー後の <code>HttpSiraStatus.dll</code> が下記の場所に存在する状態となる。
+                                                <br />
+                                                <code>C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins\HttpSiraStatus.dll</code>
+                                            </example-container>
+                                        </proc-stepdesc>
+                                    </proc-step>
+                                </proc-substeps>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+                <proc-container id="cleanup">
+                    <proc-title>不要なファイルの削除</proc-title>
+                    <proc-steps>
+                        <proc-step>
+                            <proc-steptitle>不要なファイルを削除する</proc-steptitle>
+                            <proc-stepdesc>
+                                Mod の干渉を防ぐため、もし Beat Saber の <code>Plugins</code> フォルダに下記のファイルがあれば、それを削除する。
+                                <ul>
+                                    <li><code>BeatSaberHttpStatus.dll</code></li>
+                                    <li><code>HttpStatus.dll</code></li>
+                                </ul>
+                            </proc-stepdesc>
+                        </proc-step>
+                    </proc-steps>
+                </proc-container>
+
+            </proc-group>
+        </section>
+    </article>
+
+    <script src="scripts/proc-elements.js"></script>
+</body>
+
+</html>
